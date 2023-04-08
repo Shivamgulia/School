@@ -1,0 +1,22 @@
+.layoutContainer {
+  display: grid;
+  height: 100vh;
+  /* background-color: white; */
+  background-image: radial-gradient(
+    circle 400px at 6.8% 8.3%,
+    rgba(255, 244, 169, 1) 0%,
+    rgba(255, 244, 234, 1) 100.2%
+  );
+  width: 100vw;
+  margin: 0;
+
+  grid-template-columns: 20vw 80vw;
+  grid-template-rows: 8vh minmax(92vh, auto);
+}
+
+.mainBody {
+  grid-area: 2 / 2 / -1 / -1;
+  padding: 20px;
+  max-width: 80vw;
+  padding: 5vh;
+}

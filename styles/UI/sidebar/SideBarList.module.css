@@ -1,0 +1,55 @@
+.sideListContainer {
+  padding-top: 2rem;
+  display: grid;
+  justify-content: center;
+  /* gap: 2rem; */
+}
+
+.sideListContainer > ul {
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 3rem;
+}
+
+.sideListContainer > ul > li > ul {
+  padding-left: 0rem;
+  list-style: none;
+  display: grid;
+  /* gap: 2rem; */
+  transition: all 0.5s;
+}
+
+.innerLinks {
+  margin: 10px;
+}
+
+.innerLinks > h4 {
+  margin: 0;
+}
+
+.sideListContainer > ul > li > h3 {
+  margin: 0;
+}
+
+.mainsideNav {
+  transition: all 0.5s;
+}
+
+.mainsideNav:hover {
+  translate: 0 -4px;
+  color: white;
+}
+
+.sideListContainer > ul > li > ul > a {
+  transition: all 0.5s;
+}
+
+.sideListContainer > ul > li > ul > a:hover {
+  translate: 1vw;
+  color: white;
+}
+
+.sideListContainer > ul > li > ul > h4 {
+  margin: 0;
+}

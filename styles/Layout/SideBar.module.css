@@ -1,0 +1,58 @@
+.sideContainer {
+  margin-top: 8vh;
+  width: 17vw;
+  background-color: #00d4ff;
+  height: 92vh;
+  position: fixed;
+}
+
+.sideBarbutton {
+  display: none;
+  position: absolute;
+  translate: -1vw;
+  /* background-color: rgb(85, 246, 251); */
+  background-color: #00d4ff;
+  border-radius: 0px 15px 15px 0px;
+}
+
+.sideBarbuttonclose {
+  display: none;
+  position: absolute;
+  translate: 16.5vw;
+  /* background-color: rgb(85, 246, 251); */
+  background-color: #00d4ff;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.sideListmob {
+  width: 20vw;
+  background-color: #00d4ff;
+  height: 92vh;
+}
+
+@media screen and (min-width: 900px) {
+  .sideListmob {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sideContainer {
+    width: 0vw;
+  }
+  .sideListweb {
+    display: none;
+  }
+  .sideBarbutton {
+    display: grid;
+  }
+  .sideBarbuttonclose {
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sideListmob {
+    width: 30vw;
+  }
+}

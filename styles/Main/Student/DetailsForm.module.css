@@ -1,0 +1,13 @@
+.detailFormCont {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.inputform {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+  gap: 1rem;
+}

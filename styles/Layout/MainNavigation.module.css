@@ -1,0 +1,141 @@
+.navContainer {
+  position: fixed;
+  height: 8vh;
+  display: grid;
+  grid-template-columns: repeat(2, 50vw);
+  /* justify-content: right; */
+  justify-content: space-between;
+  /* background-color: #00bce1;  */
+  background-color: #00d4ff;
+  margin: 0;
+  padding: 0vh;
+  padding-right: 30px;
+  width: 100vw;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.webNav {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.navContainer > ul {
+  margin: 0;
+  list-style: none;
+}
+
+.mobNav {
+  display: none;
+  /* display: flex; */
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+.profileMenu {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.menuButton {
+  justify-self: right;
+  align-content: right;
+}
+
+.profileicon {
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0.9;
+  padding: 10px;
+}
+
+.webMenu {
+  list-style: none;
+}
+
+.button23 {
+  background-color: #ffffff;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.button23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button23:active {
+  background-color: #f7f7f7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.button23:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.heading {
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  color: White;
+  padding-left: 1vw;
+  display: flex;
+  justify-content: left;
+  font-size: 7vh;
+  align-items: center;
+  transition: all, 1s;
+}
+
+.heading:hover {
+  color: black;
+}
+
+@media screen and (max-width: 900px) {
+  .navContainer {
+    padding: 2vh;
+  }
+  .mobNav {
+    display: flex;
+  }
+  .webNav {
+    display: none;
+  }
+  .profileicon {
+    position: absolute;
+    translate: -14vw 3vh;
+  }
+  .heading {
+    font-size: 4vh;
+  }
+}

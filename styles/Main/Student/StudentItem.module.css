@@ -1,0 +1,29 @@
+.studentdItemConstiner {
+  display: grid;
+  grid-template-columns: 10vw 10vw;
+  justify-content: center;
+  align-content: center;
+  margin: 30px;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+.dataField {
+  display: grid;
+}
+
+.centered {
+  margin: 5vh;
+  display: grid;
+  justify-content: center;
+  font-family: 'Lora', serif;
+}
+
+.centered > h1 {
+  margin: 0;
+}
+
+.details {
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: 'Roboto Mono', monospace;
+}
