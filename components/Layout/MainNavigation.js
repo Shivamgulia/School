@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Head from 'next/Head';
+import Head from 'next/head';
 // import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 
