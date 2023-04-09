@@ -45,6 +45,23 @@ export default function SideBarList() {
             </Link>
           </ul>
         </li>
+        <li>
+          <h3 className={styles.mainsideNav}>
+            <CgProfile size={15} /> Management
+          </h3>
+          <ul>
+            <Link href="/feedetails">
+              <li>
+                <h4>Fees Details</h4>
+              </li>
+            </Link>
+            <Link href="/addstd">
+              <li>
+                <h4>Add Student</h4>
+              </li>
+            </Link>
+          </ul>
+        </li>
       </ul>
     </div>
   );
