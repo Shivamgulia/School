@@ -87,7 +87,7 @@ export default function StudentItem(props) {
           <h3>Enrollment Number: {props.Student.enrolmentNumber}</h3>
           <h3>First Name : {props.Student.firstName}</h3>
           <h3>Last Name : {props.Student.lastName}</h3>
-          <h3>Parent's Name : {props.Student.parentName}</h3>
+          <h3>Parents Name : {props.Student.parentName}</h3>
           <h3>Mob Number : {props.Student.phone}</h3>
           <h3>Date of Birth : {props.Student.DOB}</h3>
         </div>
