@@ -50,7 +50,7 @@ export default function FeeGraph(props) {
       {/* Doughnut chart */}
       <h1 className={styles.graphTitle}>Fee Statics</h1>
       <div>
-        <div>
+        <div className={styles.graph}>
           <canvas id="myChart"></canvas>
         </div>
       </div>

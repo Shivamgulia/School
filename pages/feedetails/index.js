@@ -5,8 +5,10 @@ import FeeList from '../../components/Main/Fees/FeeList';
 export default function FeeDetails() {
   return (
     <Layout>
-      <FeeGraph />
-      <FeeList />
+      <div style={{ display: 'grid', 'justify-content': 'center' }}>
+        <FeeGraph />
+        <FeeList />
+      </div>
     </Layout>
   );
 }

@@ -9,7 +9,7 @@
   padding-left: 0;
   list-style: none;
   display: grid;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .sideListContainer > ul > li > ul {
@@ -21,18 +21,19 @@
 }
 
 .innerLinks {
-  margin: 10px;
+  margin-left: 10px;
 }
 
-.innerLinks > h4 {
+.innerLinks > a > li > h4 {
   margin: 0;
+  padding: 5px;
 }
 
 .sideListContainer > ul > li > h3 {
   margin: 0;
 }
 
-.mainsideNav {
+.sideListContainer > ul .mainsideNav {
   transition: all 0.5s;
 }
 

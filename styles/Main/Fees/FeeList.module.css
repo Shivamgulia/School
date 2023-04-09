@@ -4,9 +4,9 @@
   text-align: center;
   display: grid;
   gap: 5rem;
-  overflow-y: visible;
-
-  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 60vw;
+  overflow-x: visible;
 }
 
 .feeTable {
@@ -38,4 +38,10 @@
 .feeTableData > td {
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+@media screen and (max-width: 800px) {
+  .feeTableCont {
+    width: 95vw;
+  }
 }

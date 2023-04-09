@@ -20,7 +20,7 @@ export default function SideBarList() {
           <h3 className={styles.mainsideNav}>
             <CgProfile size={15} /> Profile
           </h3>
-          <ul>
+          <ul className={styles.innerLinks}>
             <Link href="/">
               <li>
                 <h4> Logout</h4>
@@ -49,7 +49,7 @@ export default function SideBarList() {
           <h3 className={styles.mainsideNav}>
             <CgProfile size={15} /> Management
           </h3>
-          <ul>
+          <ul className={styles.innerLinks}>
             <Link href="/feedetails">
               <li>
                 <h4>Fees Details</h4>

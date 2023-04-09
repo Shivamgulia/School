@@ -1,0 +1,88 @@
+.loginCont {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.loginCont > h1 {
+  text-align: center;
+  color: rgb(220, 0, 139);
+
+  text-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+    rgba(240, 46, 170, 0.3) 10px 10px;
+}
+
+.loginForm {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  /* background-color: rgb(0, 134, 134); */
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  min-width: 40vw;
+  height: 70vh;
+  border-radius: 2rem;
+  gap: 2rem;
+}
+
+.formInput {
+  display: grid;
+  gap: 0.2rem;
+  margin: 1vh;
+}
+
+.formInput > label {
+  display: none;
+}
+
+.formInput > input {
+  background-color: inherit;
+  border-width: 0;
+  padding: 1rem;
+  border-left: 4px black solid;
+
+  transition: all 0.5s;
+}
+
+.formInput > input::placeholder {
+  color: black;
+}
+
+.formInput > input:active .formInput > input::placeholder {
+  display: none;
+  color: aliceblue;
+}
+
+/* .formInput > input:not(:focus) {
+  animation-name: nope;
+  animation-duration: 0.5s;
+} */
+/* 
+.formInput > input:empty:not(:focus) {
+  animation-name: nope;
+  animation-duration: 0.5s;
+} */
+
+.loginForm > button {
+  /* background-color: darkgray; */
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: 0;
+  padding: 1rem;
+  border-radius: 0.5rem 0 0.5rem 0;
+  font-size: 20px;
+  transition: all 1s;
+}
+
+@keyframes nope {
+  33% {
+    translate: 2vw 0;
+  }
+  66% {
+    translate: -2vw 0;
+  }
+  100% {
+    translate: 0;
+  }
+}
