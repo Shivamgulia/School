@@ -9,14 +9,7 @@ export default function MainNavigation() {
   const [showNav, setShowNav] = useState(false);
   return (
     <div className={styles.navContainer}>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Head></Head>
       <div className={styles.heading}>School Time</div>
       {/* Browser Nav */}
       <div className={styles.webNav}>

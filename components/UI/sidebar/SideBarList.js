@@ -60,6 +60,11 @@ export default function SideBarList() {
                 <h4>Add Student</h4>
               </li>
             </Link>
+            <Link href="/payfees">
+              <li>
+                <h4>Fee Payment</h4>
+              </li>
+            </Link>
           </ul>
         </li>
       </ul>

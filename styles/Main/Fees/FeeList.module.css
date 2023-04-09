@@ -1,10 +1,12 @@
 .feeTableCont {
   margin-top: 5rem;
-  /* margin: 5rem; */
+
   text-align: center;
   display: grid;
   gap: 5rem;
-  overflow: scroll;
+  overflow-y: visible;
+
+  overflow-x: hidden;
 }
 
 .feeTable {

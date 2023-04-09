@@ -64,23 +64,10 @@ import styles from '../../../styles/Main/Student/StudentItem.module.css';
 // }
 
 export default function StudentItem(props) {
+  console.log(props);
   return (
     <div>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap"
-          rel="stylesheet"
-        />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Head></Head>
       <div className={styles.centered}>
         <h1>Student Details</h1>
         <div className={styles.details}>

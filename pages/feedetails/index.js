@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout/Layout';
-import FeeGraph from '../../components/Main/Fees/FeeIGraph';
+import FeeGraph from '../../components/Main/Fees/FeeGraph';
 import FeeList from '../../components/Main/Fees/FeeList';
 
 export default function FeeDetails() {
