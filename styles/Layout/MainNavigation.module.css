@@ -115,6 +115,7 @@
   font-size: 7vh;
   align-items: center;
   transition: all, 1s;
+  /* overflow: hidden; */
 }
 
 .heading:hover {

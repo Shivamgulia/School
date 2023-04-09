@@ -1,0 +1,39 @@
+.feeTableCont {
+  margin-top: 5rem;
+  /* margin: 5rem; */
+  text-align: center;
+  display: grid;
+  gap: 5rem;
+  overflow: scroll;
+}
+
+.feeTable {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.feeTableClass {
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.feeTableHead {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.feeTableHead > th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.feeTableData {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.feeTableData > td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}

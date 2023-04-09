@@ -1,6 +1,6 @@
 .layoutContainer {
   display: grid;
-  height: 100vh;
+  min-height: 100vh;
   /* background-color: white; */
   background-image: radial-gradient(
     circle 400px at 6.8% 8.3%,
@@ -19,4 +19,13 @@
   padding: 20px;
   max-width: 80vw;
   padding: 5vh;
+}
+
+@media screen and (max-width: 900px) {
+  .mainBody {
+    grid-area: 2 / 1 / -1 / -1;
+    padding: 20px;
+    max-width: 100vw;
+    padding: 5vh;
+  }
 }

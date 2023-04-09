@@ -1,0 +1,60 @@
+.form {
+  width: auto;
+  padding: 1rem 2rem;
+  background-color: #00d4ff;
+  border-radius: 2rem;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+  text-align: center;
+  color: azure;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* flex-wrap: wrap; */
+}
+
+.formLabel {
+}
+
+.formInput {
+  max-width: 17vw;
+  background-color: #5de2fc;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
+.inputdiv {
+  color: black;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.inputCont {
+  display: grid;
+  justify-content: center;
+  /* grid-template-columns: repeat(auto-fit, minmax(170px, 17vw)); */
+  gap: 2rem;
+}
+
+.submitButton {
+  color: black;
+  /* border: 100px; */
+  background-color: aquamarine;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.submitButton:hover {
+  background-color: rgb(65, 250, 188);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
