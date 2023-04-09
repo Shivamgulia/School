@@ -25,9 +25,10 @@
 }
 
 .sideListmob {
-  width: 20vw;
+  width: 30vw;
   background-color: #00d4ff;
   height: 92vh;
+  overflow-y: scroll;
 }
 
 @media screen and (min-width: 900px) {
@@ -49,10 +50,13 @@
   .sideBarbuttonclose {
     display: grid;
   }
+  .sideListmob {
+    width: 35vw;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .sideListmob {
-    width: 30vw;
+    width: 35vw;
   }
 }

@@ -73,3 +73,9 @@
   border: 3px rgb(64, 128, 1) solid;
   border-style: none none solid solid;
 }
+
+@media screen and (max-width: 500px) {
+  .payForm > button {
+    font-size: 10px;
+  }
+}
