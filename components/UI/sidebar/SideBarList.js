@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { AiFillHome } from 'react-icons/ai';
 import { GiSchoolBag } from 'react-icons/gi';
 import { CgProfile } from 'react-icons/cg';
@@ -9,22 +10,22 @@ export default function SideBarList() {
     <div className={styles.sideListContainer}>
       <ul>
         <li>
-          <a href="/">
+          <Link href="/">
             <h3 className={styles.mainsideNav}>
               <AiFillHome size={15} /> Home
             </h3>
-          </a>
+          </Link>
         </li>
         <li>
           <h3 className={styles.mainsideNav}>
             <CgProfile size={15} /> Profile
           </h3>
           <ul>
-            <a href="/">
+            <Link href="/">
               <li>
                 <h4> Logout</h4>
               </li>
-            </a>
+            </Link>
           </ul>
         </li>
         <li>
@@ -32,16 +33,16 @@ export default function SideBarList() {
             <GiSchoolBag size={15} /> Students
           </h3>
           <ul className={styles.innerLinks}>
-            <a href="/stdinfo">
+            <Link href="/stdinfo">
               <li>
                 <h4>Student Details</h4>
               </li>
-            </a>
-            <a href="/stdlist">
+            </Link>
+            <Link href="/stdlist">
               <li>
                 <h4>Student List</h4>
               </li>
-            </a>
+            </Link>
           </ul>
         </li>
       </ul>
