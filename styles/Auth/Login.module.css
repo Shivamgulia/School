@@ -75,6 +75,18 @@
   transition: all 1s;
 }
 
+@media screen and (max-width: 1000px) {
+  .loginForm {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .loginForm {
+    width: 90vw;
+  }
+}
+
 @keyframes nope {
   33% {
     translate: 2vw 0;

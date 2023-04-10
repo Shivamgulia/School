@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 // import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
@@ -14,9 +15,11 @@ export default function MainNavigation() {
       {/* Browser Nav */}
       <div className={styles.webNav}>
         <ul className={styles.webMenu}>
-          <li>
-            <button className={styles.button23}>LogOut</button>
-          </li>
+          <Link href="/">
+            <li>
+              <button className={styles.button23}>LogOut</button>
+            </li>
+          </Link>
         </ul>
       </div>
 
@@ -45,9 +48,11 @@ export default function MainNavigation() {
               <CgProfile size={30} />
             </div>
             <ul className={styles.profileicon}>
-              <li>
-                <button className={styles.button23}>LogOut</button>
-              </li>
+              <Link href="/">
+                <li>
+                  <button className={styles.button23}>LogOut</button>
+                </li>
+              </Link>
             </ul>
           </div>
         )}

@@ -64,11 +64,11 @@ import styles from '../../../styles/Main/Student/StudentItem.module.css';
 // }
 
 export default function StudentItem(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <Head></Head>
-      <div className={styles.centered}>
+      {/* <div className={styles.centered}>
         <h1>Student Details</h1>
         <div className={styles.details}>
           <h3>Enrollment Number: {props.Student.enrolmentNumber}</h3>
@@ -78,6 +78,20 @@ export default function StudentItem(props) {
           <h3>Mob Number : {props.Student.phone}</h3>
           <h3>Date of Birth : {props.Student.DOB}</h3>
         </div>
+      </div> */}
+      <div className={styles.centered}>
+        <table className={styles.listTable}>
+          <tbody className={styles.tableBody}>
+            <tr>
+              <td>{props.Student.enrolmentNumber}</td>
+              <td>{props.Student.firstName}</td>
+              <td>{props.Student.lastName}</td>
+              <td>{props.Student.parentName}</td>
+              <td>{props.Student.phone}</td>
+              <td>{props.Student.DOB}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

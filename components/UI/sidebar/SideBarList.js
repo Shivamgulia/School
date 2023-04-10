@@ -1,71 +1,109 @@
 import Link from 'next/link';
 import { AiFillHome } from 'react-icons/ai';
 import { GiSchoolBag } from 'react-icons/gi';
-import { CgProfile } from 'react-icons/cg';
+import {
+  CgProfile,
+  CgChevronDoubleDown,
+  CgChevronDoubleUp,
+} from 'react-icons/cg';
 
 import styles from '../../../styles/UI/sidebar/SideBarList.module.css';
+import { useState } from 'react';
 
 export default function SideBarList() {
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
   return (
     <div className={styles.sideListContainer}>
       <ul>
         <li>
-          <Link href="/">
+          <Link
+            href="/"
+            onClick={() => {
+              setShow1(!show1);
+            }}
+          >
             <h3 className={styles.mainsideNav}>
-              <AiFillHome size={15} /> Home
+              <div>
+                <AiFillHome size={15} /> Home
+              </div>
+              <div>
+                {!show1 && <CgChevronDoubleDown size={15} />}
+                {show1 && <CgChevronDoubleUp size={15} />}
+              </div>
             </h3>
           </Link>
+          {show1 && <ul></ul>}
         </li>
         <li>
-          <h3 className={styles.mainsideNav}>
-            <CgProfile size={15} /> Profile
-          </h3>
-          <ul className={styles.innerLinks}>
-            <Link href="/">
+          <Link
+            href="/stdinfo"
+            onClick={() => {
+              setShow2(!show2);
+            }}
+          >
+            <h3 className={styles.mainsideNav}>
+              <div>
+                <GiSchoolBag size={15} /> Students
+              </div>
+              <div>
+                {!show2 && <CgChevronDoubleDown size={15} />}
+                {show2 && <CgChevronDoubleUp size={15} />}
+              </div>
+            </h3>
+          </Link>
+          {show2 && (
+            <ul className={styles.innerLinks}>
               <li>
-                <h4> Logout</h4>
+                <Link href="/stdinfo">
+                  <h4>Student Details</h4>
+                </Link>
               </li>
-            </Link>
-          </ul>
+              <li>
+                <Link href="/stdlist" className={styles.innerLinks}>
+                  <h4>Student List</h4>
+                </Link>
+              </li>
+            </ul>
+          )}
         </li>
         <li>
-          <h3 className={styles.mainsideNav}>
-            <GiSchoolBag size={15} /> Students
-          </h3>
-          <ul className={styles.innerLinks}>
-            <Link href="/stdinfo">
+          <Link
+            href="/stdinfo"
+            onClick={() => {
+              setShow3(!show3);
+            }}
+          >
+            <h3 className={styles.mainsideNav}>
+              <div>
+                <CgProfile size={15} /> Management
+              </div>
+              <div>
+                {!show3 && <CgChevronDoubleDown size={15} />}
+                {show3 && <CgChevronDoubleUp size={15} />}
+              </div>
+            </h3>
+          </Link>
+          {show3 && (
+            <ul className={styles.innerLinks}>
               <li>
-                <h4>Student Details</h4>
+                <Link href="/feedetails">
+                  <h4>Fees Details</h4>
+                </Link>
               </li>
-            </Link>
-            <Link href="/stdlist">
               <li>
-                <h4>Student List</h4>
+                <Link href="/addstd" className={styles.innerLinks}>
+                  <h4>Add Student</h4>
+                </Link>
               </li>
-            </Link>
-          </ul>
-        </li>
-        <li>
-          <h3 className={styles.mainsideNav}>
-            <CgProfile size={15} /> Management
-          </h3>
-          <ul className={styles.innerLinks}>
-            <Link href="/feedetails">
               <li>
-                <h4>Fees Details</h4>
+                <Link href="/payfees" className={styles.innerLinks}>
+                  <h4>Fee Payment</h4>
+                </Link>
               </li>
-            </Link>
-            <Link href="/addstd">
-              <li>
-                <h4>Add Student</h4>
-              </li>
-            </Link>
-            <Link href="/payfees">
-              <li>
-                <h4>Fee Payment</h4>
-              </li>
-            </Link>
-          </ul>
+            </ul>
+          )}
         </li>
       </ul>
     </div>

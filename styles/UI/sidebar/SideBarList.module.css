@@ -1,32 +1,47 @@
 .sideListContainer {
   padding-top: 2rem;
+  margin: 0;
   display: grid;
+  grid-template-columns: 100%;
   justify-content: center;
-  /* gap: 2rem; */
+  width: 100%;
+  gap: 2rem;
 }
 
 .sideListContainer > ul {
   padding-left: 0;
+  margin: 0;
+  /* padding: 10px; */
   list-style: none;
   display: grid;
-  gap: 1rem;
+  /* gap: 1rem; */
+}
+
+.sideListContainer h3 {
+  margin: 0px;
+}
+.sideListContainer > ul > li {
+  border-style: none none solid none;
 }
 
 .sideListContainer > ul > li > ul {
   padding-left: 0rem;
+  margin: 0;
   list-style: none;
   display: grid;
-  /* gap: 2rem; */
+  grid-template-rows: repeat(autofit, 0px);
+
   transition: all 0.5s;
 }
 
 .innerLinks {
-  margin-left: 10px;
+  /* margin-left: 10px; */
+  width: 100%;
 }
 
 .innerLinks > a > li > h4 {
   margin: 0;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .sideListContainer > ul > li > h3 {
@@ -34,23 +49,41 @@
 }
 
 .sideListContainer > ul .mainsideNav {
+  padding: 10px;
   transition: all 0.5s;
+}
+.mainsideNav {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-content: center;
+  border-style: none none solid none;
 }
 
 .mainsideNav:hover {
   translate: 0 -4px;
+  background-color: black;
   color: white;
 }
 
-.sideListContainer > ul > li > ul > a {
+.sideListContainer > ul > li > ul > li {
+  padding-left: 10px;
   transition: all 0.5s;
+  padding: 20px;
 }
 
-.sideListContainer > ul > li > ul > a:hover {
-  translate: 1vw;
+.sideListContainer > ul > li > ul > li:hover {
+  background-color: black;
   color: white;
 }
+.sideListContainer > ul > li > ul > li > Link {
+  transition: all 0.5s;
+  margin: 0;
+}
 
-.sideListContainer > ul > li > ul > h4 {
+.sideListContainer > ul > li > ul > li > a:hover {
+  translate: 1vw;
+}
+
+.sideListContainer > ul > li > ul h4 {
   margin: 0;
 }

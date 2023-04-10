@@ -1,19 +1,23 @@
 .payCont {
   display: grid;
+  margin-top: 50px;
   gap: 2rem;
   grid-template-columns: minmax(200px, 38vw);
   align-content: center;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .formCont {
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
+  background-color: inherit;
   padding: 2rem;
   border-radius: 0.5rem;
-  border: 7px rgb(64, 128, 1) solid;
-  border-style: solid solid none none;
-  border-left: 3px rgb(64, 128, 1) solid;
-  border-bottom: 3px rgb(64, 128, 1) solid;
+  /* border: 7px rgb(64, 128, 1) solid; */
+  /* border-style: solid solid none none; */
+  /* border-left: 3px rgb(64, 128, 1) solid; */
+  /* border-bottom: 3px rgb(64, 128, 1) solid; */
 }
 
 .payForm {
@@ -36,7 +40,8 @@
 
 .formselect > select {
   width: 20vw;
-  background-color: rgb(106, 211, 2);
+  /* background-color: rgb(106, 211, 2); */
+  background-color: inherit;
   padding: 0.3rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 0.3rem;
@@ -47,7 +52,8 @@
 .forminput > input {
   width: 20vw;
   padding: 0.3rem;
-  background-color: rgb(106, 211, 2);
+  /* background-color: rgb(106, 211, 2); */
+  background-color: inherit;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border: 3px rgb(64, 128, 1) solid;
   border-style: none none solid solid;
@@ -59,7 +65,8 @@
   border-radius: 0.4rem;
   border: 0;
   padding: 10px;
-  background-color: rgb(106, 211, 2);
+  /* background-color: rgb(106, 211, 2); */
+  background-color: inherit;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   font-size: 30px;
   transition: all 0.5s;
@@ -75,12 +82,18 @@
 }
 
 @media screen and (max-width: 700px) {
+  .payCont {
+    grid-template-columns: minmax(200px, 90vw);
+  }
   .payForm > button {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width: 500px) {
+  .payCont {
+    grid-template-columns: minmax(200px, 90vw);
+  }
   .payForm > button {
     font-size: 10px;
   }

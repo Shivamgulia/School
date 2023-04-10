@@ -3,9 +3,10 @@
   grid-template-columns: 10vw 10vw;
   justify-content: center;
   align-content: center;
-  margin: 30px;
+  /* margin: 30px; */
   flex-wrap: wrap;
   gap: 4rem;
+  overflow-x: scroll;
 }
 
 .dataField {
@@ -13,7 +14,7 @@
 }
 
 .centered {
-  margin: 5vh;
+  /* margin: 5vh; */
   display: grid;
   justify-content: center;
   font-family: 'Lora', serif;
@@ -26,4 +27,29 @@
 .details {
   /* font-family: 'Times New Roman', Times, serif; */
   font-family: 'Roboto Mono', monospace;
+}
+
+.listTable {
+  border: 1px solid black;
+  border-collapse: collapse;
+  /* overflow-x: hidden; */
+}
+
+.tableBody {
+  display: grid;
+  /* overflow-x: visible; */
+}
+
+.tableBody > tr > td {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  width: 10vw;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+@media screen and (max-width: 500px) {
+  .tableBody > tr > td {
+    width: 1vw;
+  }
 }

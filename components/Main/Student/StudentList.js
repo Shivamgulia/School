@@ -7,38 +7,42 @@ const list = [
     classname: 'XII',
     stdList: [
       {
-        enrollmentNumber: 101,
-        fname: 'Shivam 1',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 101,
+        firstName: 'Shivam 1',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'completely paid',
         paid: 4000,
       },
       {
-        enrollmentNumber: 102,
-        name: 'Shivam 2',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 102,
+        firstName: 'Shivam 2',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'partially paid',
         paid: 4000,
       },
       {
-        enrollmentNumber: 103,
-        name: 'Shivam 3',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 103,
+        firstName: 'Shivam 3',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'pending',
         paid: 0,
       },
       {
-        enrollmentNumber: 104,
-        name: 'Shivam 4',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 104,
+        firstName: 'Shivam 4',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'completely paid',
         paid: 4000,
       },
@@ -48,38 +52,42 @@ const list = [
     classname: 'XI',
     stdList: [
       {
-        enrollmentNumber: 101,
-        name: 'Shivam 1',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 101,
+        firstName: 'Shivam 1',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'completely paid',
         paid: 4000,
       },
       {
-        enrollmentNumber: 102,
-        name: 'Shivam 2',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 102,
+        firstName: 'Shivam 2',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'partially paid',
         paid: 4000,
       },
       {
-        enrollmentNumber: 103,
-        name: 'Shivam 3',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 103,
+        firstName: 'Shivam 3',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'pending',
         paid: 0,
       },
       {
-        enrollmentNumber: 104,
-        name: 'Shivam 4',
-        lname: 'gulia',
-        pname: 'Jitedra Kumar',
-        dob: '06 june 2002',
+        enrolmentNumber: 104,
+        firstName: 'Shivam 4',
+        lastName: 'gulia',
+        parentName: 'Jitedra Kumar',
+        DOB: '06 june 2002',
+        phone: '8279373573',
         paymentStatus: 'completely paid',
         paid: 4000,
       },
@@ -89,12 +97,25 @@ const list = [
 
 export default function StudentList() {
   return (
-    <div>
+    <div className={styles.centered}>
+      <h1>Student List</h1>
+      <table className={styles.listTable}>
+        <tbody className={styles.tableBody}>
+          <tr>
+            <th>SR. No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Parents Name</th>
+            <th>Mobile/ Phone No.</th>
+            <th>Date of Birth</th>
+          </tr>
+        </tbody>
+      </table>
       {list.map((item) => {
         return (
           <div key={item.classname}>
             {item.stdList.map((std) => {
-              return <StudentItem key={std.enrollmentNumber} student={std} />;
+              return <StudentItem key={std.enrolmentNumber} Student={std} />;
             })}
           </div>
         );
@@ -102,3 +123,22 @@ export default function StudentList() {
     </div>
   );
 }
+
+// export default function StudentList() {
+//   return (
+//     <div>
+//       <table>
+//         <tbody>
+//           <tr>
+//             <th>Enrollment Number</th>
+//             <th>First Name</th>
+//             <th>Last Name</th>
+//             <th>Parents Name</th>
+//             <th>Mob Number</th>
+//             <th>Date of Birth</th>
+//           </tr>
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }

@@ -1,34 +1,40 @@
 .sideContainer {
-  margin-top: 8vh;
   width: 17vw;
-  background-color: #00d4ff;
-  height: 92vh;
+
+  background-color: white;
+
+  height: 100vh;
+
   position: fixed;
+
+  border-radius: 0 1rem 1rem 0;
+  border-style: solid solid none none;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .sideBarbutton {
   display: none;
   position: absolute;
   translate: -1vw;
-  /* background-color: rgb(85, 246, 251); */
-  background-color: #00d4ff;
   border-radius: 0px 15px 15px 0px;
 }
 
 .sideBarbuttonclose {
   display: none;
   position: absolute;
-  translate: 16.5vw;
-  /* background-color: rgb(85, 246, 251); */
-  background-color: #00d4ff;
+  translate: 20vw;
   border-radius: 15px 0px 0px 15px;
 }
 
 .sideListmob {
   width: 30vw;
-  background-color: #00d4ff;
-  height: 92vh;
-  overflow-y: scroll;
+  background-color: white;
+  height: 100vh;
+
+  border-radius: 0 1rem 1rem 0;
+  border-style: solid solid none none;
+  border-style: solid solid none none;
 }
 
 @media screen and (min-width: 900px) {
@@ -53,10 +59,17 @@
   .sideListmob {
     width: 35vw;
   }
+  .sideBarbuttonclose {
+    translate: 27vw;
+    z-index: 1;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .sideListmob {
-    width: 35vw;
+    width: 45vw;
+  }
+  .sideBarbuttonclose {
+    translate: 37vw;
   }
 }
