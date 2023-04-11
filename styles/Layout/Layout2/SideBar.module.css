@@ -9,8 +9,10 @@
   padding-top: 20px;
 }
 .sideBarContainer {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
+  /* padding-left: 0.5rem; */
 }
+
 .sideBarListItem {
   list-style: none;
   color: rgb(88, 88, 88);
@@ -19,8 +21,11 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  position: relative;
-  left: -10px;
+  /* position: relative; */
+  transition: all 0.5s;
+  padding-left: 1rem;
+  /* margin-left: 1rem; */
+  /* left: -10px; */
 }
 .sideBarListItem:hover {
   cursor: pointer;
@@ -30,12 +35,16 @@
 }
 .sideBarListTitle {
   font-size: 20px;
-  color: rgb(4, 122, 48);
+  color: rgb(2, 95, 36);
+  padding-left: 1rem;
 }
 .sideBarList {
-  width: 100%;
+  /* margin: 0; */
+  /* padding: 0; */
   position: relative;
-  left: -40px;
+  /* left: -40px; */
+
+  text-align: left;
 }
 .link {
   text-decoration: none;
@@ -46,6 +55,12 @@
 .sideBarLogo {
   margin-left: 15px;
 }
+
+/* @media screen and (max-width: 15500px) {
+  .sideBar {
+    width: 15vw;
+  }
+} */
 
 @media screen and (max-width: 1200px) {
   .sideBar {

@@ -12,8 +12,26 @@
   align-content: center;
 }
 
+@media screen and (max-width: 1550px) {
+  .mainContainer {
+    grid-template-columns: 30% 70%;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .mainContainer {
-    grid-template-columns: 40% 80%;
+    grid-template-columns: 40% 60%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mainContainer {
+    grid-template-columns: 40% 60%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mainContainer {
+    grid-template-columns: 40% 60%;
   }
 }
