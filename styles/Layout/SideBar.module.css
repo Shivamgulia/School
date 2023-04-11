@@ -1,75 +1,92 @@
-.sideContainer {
-  width: 17vw;
-
-  background-color: white;
-
+.sidebarContainer {
+  background-color: black;
+  color: white;
+  margin: 0;
+  /* width: 20%; */
   height: 100vh;
-
-  position: fixed;
-
-  border-radius: 0 1rem 1rem 0;
-  border-style: solid solid none none;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  display: flex;
+  flex-direction: column;
+  text-transform: capitalize;
+  /* padding-left: 1vw; */
+  text-align: left;
+}
+.sidebarHead {
+  text-align: left;
+  font-size: 4.6vw;
+  padding-left: 10px;
+  font-family: 'Rubik Pixels', cursive;
+  margin-bottom: 5vh;
 }
 
-.sideBarbutton {
-  display: none;
-  position: absolute;
-  translate: -1vw;
-  border-radius: 0px 15px 15px 0px;
+.headLink {
+  font-size: 2.6vw;
+  padding: 2px;
+  padding-left: 10px;
+  transition: all 0.5s;
+  font-family: 'Libre Baskerville', serif;
 }
 
-.sideBarbuttonclose {
-  display: none;
-  position: absolute;
-  translate: 20vw;
-  border-radius: 15px 0px 0px 15px;
+.headLink:hover {
+  padding-left: 20px;
+  color: black;
+  /* background-color: brown; */
+  background-image: linear-gradient(
+    90.1deg,
+    rgba(84, 212, 228, 1) 0.2%,
+    rgba(68, 36, 164, 1) 99.9%
+  );
+  text-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
-.sideListmob {
-  width: 30vw;
-  background-color: white;
-  height: 100vh;
-
-  border-radius: 0 1rem 1rem 0;
-  border-style: solid solid none none;
-  border-style: solid solid none none;
+.headLink:active {
+  padding-left: 20px;
+  color: black;
+  /* background-color: brown; */
+  background-image: linear-gradient(
+    90.1deg,
+    rgba(84, 212, 228, 1) 0.2%,
+    rgba(68, 36, 164, 1) 99.9%
+  );
 }
 
-@media screen and (min-width: 900px) {
-  .sideListmob {
-    display: none;
-  }
+.innerLinksDiv {
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 900px) {
-  .sideContainer {
-    width: 0vw;
-  }
-  .sideListweb {
-    display: none;
-  }
-  .sideBarbutton {
-    display: grid;
-  }
-  .sideBarbuttonclose {
-    display: grid;
-  }
-  .sideListmob {
-    width: 35vw;
-  }
-  .sideBarbuttonclose {
-    translate: 27vw;
-    z-index: 1;
-  }
+.innerLinks {
+  font-size: 2vw;
+  padding: 5px;
+  padding-left: 20px;
+  transition: all 0.5s;
+  border-radius: 0.3rem 0 0 0.3rem;
+  font-family: 'Libre Baskerville', serif;
 }
 
-@media screen and (max-width: 600px) {
-  .sideListmob {
-    width: 45vw;
+.innerLinks:hover {
+  padding-left: 30px;
+  /* background-color: Brown; */
+  background-image: linear-gradient(
+    90.1deg,
+    rgba(84, 212, 228, 1) 0.2%,
+    rgba(68, 36, 164, 1) 99.9%
+  );
+  background-blend-mode: darken;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebarContainer {
+    /* width: 30%; */
   }
-  .sideBarbuttonclose {
-    translate: 37vw;
+  .headLink {
+    font-size: 4vw;
+    padding-left: 5px;
+  }
+  .innerLinks {
+    font-size: 3vw;
   }
 }

@@ -9,8 +9,13 @@ export default function DetailsForm(props) {
     <div className={styles.detailFormCont}>
       <form>
         <div className={styles.inputform}>
-          <label htmlFor="EnrolmentNumber">Enter Enrolment Number</label>
-          <input type="Number" name="" id="" />
+          {/* <label htmlFor="EnrolmentNumber">Enter Enrolment Number</label> */}
+          <input
+            type="Number"
+            name="EnrolmentNumber"
+            id="EnrolmentNumber"
+            placeholder="EnrolmentNumber"
+          />
           <button type="submit" onClick={show}>
             Get Details
           </button>

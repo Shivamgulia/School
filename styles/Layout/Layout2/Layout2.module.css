@@ -1,0 +1,18 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  justify-content: center;
+  /* gap: 2.5rem; */
+}
+
+.children {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .mainContainer {
+    grid-template-columns: 40% 80%;
+  }
+}

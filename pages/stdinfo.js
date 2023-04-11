@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import DetailsForm from '../components/Main/Student/DetailsForm';
 import Layout from '../components/Layout/Layout';
+import Layout2 from '../components/Layout/Layout2/Layout2';
 import StudentItem from '../components/Main/Student/StudentItem';
 import useHttp from '../components/hooks/use-http';
 import { getStudentDetails } from '../components/lib/api';
@@ -36,14 +37,14 @@ export default function StdInfo() {
       <Head>
         <title>Student Details</title>
       </Head>
-      <Layout>
+      <Layout2>
         <DetailsForm showDetails={ShowDetails} />
         {showDets && (
           <div>
             <StudentItem Student={student}></StudentItem>
           </div>
         )}
-      </Layout>
+      </Layout2>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { AiFillHome } from 'react-icons/ai';
 import { GiSchoolBag } from 'react-icons/gi';
+import { FaSchool } from 'react-icons/fa';
 import {
   CgProfile,
   CgChevronDoubleDown,
   CgChevronDoubleUp,
+  CgLoadbarAlt,
 } from 'react-icons/cg';
 
 import styles from '../../../styles/UI/sidebar/SideBarList.module.css';
@@ -16,6 +18,10 @@ export default function SideBarList() {
   const [show3, setShow3] = useState(false);
   return (
     <div className={styles.sideListContainer}>
+      <div className={styles.logo}>
+        <FaSchool size={40} />
+        <h2>School</h2>
+      </div>
       <ul>
         <li>
           <Link
@@ -57,12 +63,17 @@ export default function SideBarList() {
             <ul className={styles.innerLinks}>
               <li>
                 <Link href="/stdinfo">
-                  <h4>Student Details</h4>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}
+                    Student Details
+                  </h4>
                 </Link>
               </li>
               <li>
                 <Link href="/stdlist" className={styles.innerLinks}>
-                  <h4>Student List</h4>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}Student List
+                  </h4>
                 </Link>
               </li>
             </ul>
@@ -89,17 +100,23 @@ export default function SideBarList() {
             <ul className={styles.innerLinks}>
               <li>
                 <Link href="/feedetails">
-                  <h4>Fees Details</h4>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}Fees Details
+                  </h4>
                 </Link>
               </li>
               <li>
                 <Link href="/addstd" className={styles.innerLinks}>
-                  <h4>Add Student</h4>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}Add Student
+                  </h4>
                 </Link>
               </li>
               <li>
                 <Link href="/payfees" className={styles.innerLinks}>
-                  <h4>Fee Payment</h4>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}Fee Payment
+                  </h4>
                 </Link>
               </li>
             </ul>

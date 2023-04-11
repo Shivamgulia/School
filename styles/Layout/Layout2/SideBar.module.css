@@ -1,0 +1,72 @@
+.sideBar {
+  background-color: rgb(229, 243, 229);
+  position: sticky;
+  box-shadow: 3px 0px 10px 1px rgb(196, 199, 197);
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  width: 12.2vw;
+  padding-top: 20px;
+}
+.sideBarContainer {
+  padding: 0 2rem;
+}
+.sideBarListItem {
+  list-style: none;
+  color: rgb(88, 88, 88);
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+  left: -10px;
+}
+.sideBarListItem:hover {
+  cursor: pointer;
+  color: rgb(33, 48, 38);
+  border-radius: 5px;
+  background-color: rgb(133, 214, 130);
+}
+.sideBarListTitle {
+  font-size: 20px;
+  color: rgb(4, 122, 48);
+}
+.sideBarList {
+  width: 100%;
+  position: relative;
+  left: -40px;
+}
+.link {
+  text-decoration: none;
+}
+.active {
+  color: green;
+}
+.sideBarLogo {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+  .sideBar {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sideBar {
+    width: 28vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sideBar {
+    width: 36vw;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .sideBar {
+    width: 42vw;
+  }
+}

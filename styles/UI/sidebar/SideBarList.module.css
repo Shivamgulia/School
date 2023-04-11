@@ -4,14 +4,29 @@
   display: grid;
   grid-template-columns: 100%;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
   gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  gap: 1vw;
+  padding-left: 10px;
+  align-content: center;
+}
+
+.logo > h2 {
+  margin: 0;
+  font-size: 30px;
+  justify-self: center;
+  align-self: end;
 }
 
 .sideListContainer > ul {
   padding-left: 0;
   margin: 0;
   /* padding: 10px; */
+  border-style: solid none none none;
   list-style: none;
   display: grid;
   /* gap: 1rem; */
@@ -49,7 +64,7 @@
 }
 
 .sideListContainer > ul .mainsideNav {
-  padding: 10px;
+  padding: 30px;
   transition: all 0.5s;
 }
 .mainsideNav {
@@ -68,7 +83,7 @@
 .sideListContainer > ul > li > ul > li {
   padding-left: 10px;
   transition: all 0.5s;
-  padding: 20px;
+  padding: 10px;
 }
 
 .sideListContainer > ul > li > ul > li:hover {
@@ -86,4 +101,10 @@
 
 .sideListContainer > ul > li > ul h4 {
   margin: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .sideListContainer > ul .mainsideNav {
+    padding: 10px;
+  }
 }

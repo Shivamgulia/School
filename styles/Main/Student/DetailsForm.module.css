@@ -2,12 +2,56 @@
   display: grid;
   justify-content: center;
   align-content: center;
+  margin-bottom: 5vh;
 }
 
 .inputform {
   display: grid;
   justify-content: center;
   align-content: center;
-  padding: 10px;
+  padding: 4vh;
   gap: 1rem;
+  width: 50vw;
+  padding-bottom: 5vh;
+  margin-top: 5vh;
+  border-radius: 1rem;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.inputform > input {
+  border-style: none none solid solid;
+  border-color: black;
+  background-color: inherit;
+  padding: 0.5rem;
+
+  padding-bottom: 2px;
+  padding-left: 2px;
+  width: fit-content;
+  font-size: 20px;
+}
+
+.inputform > input::placeholder {
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+.inputform > button {
+  background-color: inherit;
+  border-style: solid;
+  transition: all 0.5s;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  background-color: white;
+  font-size: 20px;
+  font-style: bold;
+}
+
+.inputform > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
