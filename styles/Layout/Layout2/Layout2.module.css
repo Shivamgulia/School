@@ -5,7 +5,8 @@
   /* gap: 2.5rem; */
 }
 
-.children {
+.mainContent {
+  margin-top: 5vh;
   display: grid;
   justify-content: center;
   align-content: center;

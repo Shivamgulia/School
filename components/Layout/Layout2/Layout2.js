@@ -12,7 +12,7 @@ export default function Layout2(props) {
       <TopBar />
       <div className={styles.mainContainer}>
         <div>{!showSideBar && <SideBar />}</div>
-        <div className={styles.children}>{props.children}</div>
+        <div className={styles.mainContent}>{props.children}</div>
       </div>
     </Fragment>
   );
