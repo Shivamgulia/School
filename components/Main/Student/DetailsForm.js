@@ -16,7 +16,7 @@ export default function DetailsForm(props) {
             id="EnrolmentNumber"
             placeholder="EnrolmentNumber"
           />
-          <button type="submit" onClick={show}>
+          <button type="submit" className={styles.submitbutton} onClick={show}>
             Get Details
           </button>
         </div>

@@ -6,12 +6,13 @@
 }
 
 .inputform {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-content: center;
   padding: 4vh;
   gap: 1rem;
-  width: 50vw;
+  /* width: 50vw; */
   padding-bottom: 5vh;
   margin-top: 5vh;
   border-radius: 1rem;
@@ -30,15 +31,20 @@
   padding-left: 2px;
   width: fit-content;
   font-size: 20px;
+  background-color: inherit;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 3px rgb(64, 128, 1) solid;
+  border-style: none none solid solid;
+  border-radius: 0.3rem;
 }
 
 .inputform > input::placeholder {
   color: black;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
 }
 
-.inputform > button {
+.submitbutton {
   background-color: inherit;
   border-style: solid;
   transition: all 0.5s;
@@ -46,12 +52,24 @@
   padding: 1rem;
   background-color: white;
   font-size: 20px;
+  /* font-size: 2vw; */
   font-style: bold;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  transition: all 0.5s;
 }
 
-.inputform > button:hover {
+.submitbutton:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 3px rgb(64, 128, 1) solid;
+  border-style: none none solid solid;
+  background-color: rgb(80, 158, 1);
+  color: white;
+  box-shadow: rgb(46, 92, 0) 0px 5px 15px;
+  /* border: 5px rgb(106, 211, 2) solid; */
+  border: 3px rgb(64, 128, 1) solid;
+  border-style: none none solid solid;
 }

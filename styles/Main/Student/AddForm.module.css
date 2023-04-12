@@ -42,12 +42,12 @@
 
 .inputdiv {
   color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 0.5rem;
   display: grid;
-
-  grid-template-columns: 49% 1% 50%;
-  justify-content: center;
-  width: 100%;
-  gap: 1rem;
+  grid-template-columns: 50% 50%;
 }
 
 .formInput {
@@ -59,15 +59,22 @@
   display: grid;
   justify-content: center;
   /* grid-template-columns: repeat(auto-fit, minmax(170px, 17vw)); */
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .formInput::placeholder {
   padding: 2vw;
 }
 
+.submitdiv {
+  display: grid;
+  /* justify-content: center; */
+}
+
 .submitButton {
   color: black;
+
+  align-self: center;
   /* border: 100px; */
   background-color: rgb(255, 255, 255);
   padding: 0.5rem;
@@ -78,8 +85,17 @@
 
 .submitButton:hover {
   /* background-color: rgb(221, 252, 255); */
+
   background-color: #b6f3ff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+@media screen and (max-width: 700px) {
+  .inputdiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
