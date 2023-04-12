@@ -116,7 +116,7 @@ export default function SideBar() {
       <div className={styles.sideBarContainer}>
         {sideLinks.map((item) => {
           return (
-            <Fragment>
+            <Fragment key={item.head}>
               <div className={styles.SideBarDashboard}>
                 <h4 className={styles.sideBarListTitle}>{item.head}</h4>
                 <ul className={styles.sideBarList}>
