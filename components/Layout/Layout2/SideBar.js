@@ -18,7 +18,7 @@ const sideLinks = [
       { name: 'Student List', to: '/stdlist' },
     ],
   },
-  { head: 'Profile', innerLinks: [{ name: 'logout', to: '/' }] },
+  { head: 'Profile', innerLinks: [{ name: 'logout', to: '/auth' }] },
 ];
 
 // const SideBar = () => {

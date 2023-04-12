@@ -1,5 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from '../../../styles/Layout/Layout2/TopBar.module.css';
+
 import { CgBoy, CgLogOut } from 'react-icons/cg';
 // import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 // import SettingsIcon from '@material-ui/icons/Settings';
@@ -19,9 +21,9 @@ const TopBar = () => {
           {/* </div> */}
           {/* <SettingsIcon className={styles.settings} /> */}
           {/* <LanguageIcon className={styles.language} /> */}
-          <div classNam={styles.profileIcon}>
+          <Link className={styles.profileIcon} href="/auth">
             <CgLogOut size={30} />
-          </div>
+          </Link>
         </div>
       </div>
     </div>
