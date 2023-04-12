@@ -1,6 +1,6 @@
 .mainContainer {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 10% 90%;
   justify-content: center;
   /* gap: 2.5rem; */
 }
@@ -12,26 +12,67 @@
   align-content: center;
 }
 
+.closeIcon {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 10vw;
+}
+
+.openIcon {
+  position: relative;
+}
+
 @media screen and (max-width: 1550px) {
   .mainContainer {
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 10% 90%;
+  }
+  .closeIcon {
+    display: none;
+    left: 12.5vw;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .mainContainer {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 20% 80%;
+  }
+  .closeIcon {
+    display: none;
+    left: 20vw;
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
   .mainContainer {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 0% 100%;
+  }
+  .closeIcon {
+    display: block;
+    left: 28vw;
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 700px) {
   .mainContainer {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 0% 100%;
+  }
+  .closeIcon {
+    display: block;
+    left: 28vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mainContainer {
+    grid-template-columns: 0% 100%;
+  }
+  .closeIcon {
+    display: block;
+    left: 36vw;
+  }
+  .sidebar {
+    position: absolute;
+    left: -28vw;
   }
 }

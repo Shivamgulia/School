@@ -32,8 +32,14 @@
 }
 
 .profileIcon {
+  /* height: 40px; */
+  /* width: 40px; */
+}
+
+.topRight:hover {
   height: 40px;
   width: 40px;
+  background-color: rgb(15, 119, 29);
   border-radius: 50%;
 }
 

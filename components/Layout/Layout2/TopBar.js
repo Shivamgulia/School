@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../../../styles/Layout/Layout2/TopBar.module.css';
+import { CgBoy, CgLogOut } from 'react-icons/cg';
 // import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 // import SettingsIcon from '@material-ui/icons/Settings';
 // import LanguageIcon from '@material-ui/icons/Language';
@@ -12,17 +13,15 @@ const TopBar = () => {
           <h3 className={styles.title}>School</h3>
         </div>
         <div className={styles.topRight}>
-          <div>
-            {/* <NotificationsActiveIcon className={styles.notification} /> */}
-            {/* <span className={styles.topBadge}>5</span> */}
-          </div>
+          {/* <div> */}
+          {/* <NotificationsActiveIcon className={styles.notification} /> */}
+          {/* <span className={styles.topBadge}>5</span> */}
+          {/* </div> */}
           {/* <SettingsIcon className={styles.settings} /> */}
           {/* <LanguageIcon className={styles.language} /> */}
-          <img
-            // src={ProfileIcon}
-            alt="ProfileIcon"
-            className={styles.profileIcon}
-          />
+          <div classNam={styles.profileIcon}>
+            <CgLogOut size={30} />
+          </div>
         </div>
       </div>
     </div>

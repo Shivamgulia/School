@@ -1,8 +1,9 @@
 .sideBar {
   background-color: rgb(229, 243, 229);
   position: sticky;
-  box-shadow: 3px 0px 10px 1px rgb(196, 199, 197);
+  box-shadow: 3px 0px 10px 1px #c4c7c5;
   height: 100vh;
+  margin: 0;
   position: fixed;
   display: flex;
   width: 12.2vw;
@@ -68,20 +69,34 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .sideBar {
+    width: 28vw;
+    position: absolute;
+    left: 0;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .sideBar {
     width: 28vw;
+    position: absolute;
+    left: 0;
   }
 }
 
 @media screen and (max-width: 500px) {
   .sideBar {
     width: 36vw;
+    position: absolute;
+    left: 0;
   }
 }
 
 @media screen and (max-width: 380px) {
   .sideBar {
     width: 42vw;
+    position: absolute;
+    left: 0;
   }
 }
