@@ -14,6 +14,7 @@ export default function PayFees() {
       </Head>
       <Layout2>
         <DetailsForm
+          formFor="EnrolmentNumber"
           showDetails={(props) => {
             setGetDets(props);
           }}

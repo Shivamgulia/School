@@ -13,7 +13,7 @@ export default function Pay() {
   }
   return (
     <div className={styles.payCont}>
-      <div>
+      <div className={styles.details}>
         <h1>Details </h1>
         <h3>Enrollment Number : </h3>
         <h3>Name : </h3>

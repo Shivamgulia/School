@@ -14,10 +14,10 @@ export default function DetailsForm(props) {
             type="Number"
             name="EnrolmentNumber"
             id="EnrolmentNumber"
-            placeholder="EnrolmentNumber"
+            placeholder={props.formFor}
           />
           <button type="submit" className={styles.submitbutton} onClick={show}>
-            Get Details
+            <span>Get Details</span>
           </button>
         </div>
       </form>

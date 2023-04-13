@@ -38,7 +38,7 @@ export default function StdInfo() {
         <title>Student Details</title>
       </Head>
       <Layout2>
-        <DetailsForm showDetails={ShowDetails} />
+        <DetailsForm formFor="EnrolmentNumber" showDetails={ShowDetails} />
         {showDets && (
           <div>
             <StudentItem Student={student}></StudentItem>

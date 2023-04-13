@@ -55,8 +55,12 @@
   /* font-size: 2vw; */
   font-style: bold;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
+  color: black;
   transition: all 0.5s;
+}
+
+.submitbutton > span {
+  z-index: 1;
 }
 
 .submitbutton:hover {
