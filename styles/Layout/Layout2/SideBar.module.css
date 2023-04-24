@@ -1,6 +1,6 @@
 .sideBar {
   background-color: rgb(229, 243, 229);
-  position: sticky;
+  /* position: sticky; */
   box-shadow: 3px 0px 10px 1px #c4c7c5;
   height: 100vh;
   margin: 0;
@@ -12,6 +12,7 @@
 .sideBarContainer {
   /* padding: 0 2rem; */
   /* padding-left: 0.5rem; */
+  position: fixed;
 }
 
 .sideBarListItem {

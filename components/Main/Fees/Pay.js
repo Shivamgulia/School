@@ -1,27 +1,50 @@
-import { useRef } from 'react';
-
+import { Fragment, useEffect } from 'react';
 import styles from '../../../styles/Main/Fees/Pay.module.css';
+import useHttp from '../../hooks/use-http';
+import { getStudentDetails } from '../../lib/api';
+import PayForm from './PayForm';
 
-export default function Pay() {
-  const payRef = useRef();
-  const amountRef = useRef();
+export default function Pay(props) {
+  console.log(props);
 
-  function submitionHandler(event) {
-    event.preventDefault();
-    console.log(payRef.current.value);
-    console.log(amountRef.current.value);
-  }
+  const {
+    sendRequest,
+    data: studentDetails,
+    status,
+    error,
+  } = useHttp(getStudentDetails);
+
+  useEffect(() => {
+    sendRequest(props.Fees.studentId);
+  }, [sendRequest, props.Fees.studentId]);
+
   return (
     <div className={styles.payCont}>
-      <div className={styles.details}>
-        <h1>Details </h1>
-        <h3>Enrollment Number : </h3>
-        <h3>Name : </h3>
-        <h3>Parents Name :</h3>
-        <h3>Phone : </h3>
-      </div>
-      <div className={styles.formCont}>
+      {status === 'completed' && (
+        <Fragment>
+          <div className={styles.details}>
+            <h1>Details </h1>
+            <h3>Enrollment Number : {props.Fees.studentId}</h3>
+            <h3>
+              Name : {studentDetails.firstName} {studentDetails.lastName}
+            </h3>
+            <h3>Parents Name : {studentDetails.fatherName}</h3>
+            <h3>Phone : {studentDetails.phone}</h3>
+          </div>
+          <PayForm student={studentDetails} />
+        </Fragment>
+      )}
+      {/* <div className={styles.formCont}>
         <form action="" className={styles.payForm} onSubmit={submitionHandler}>
+          <div className={styles.formselect}>
+            <label htmlFor="quater"> Payment</label>
+            <select name="quater" id="quater" ref={quaterRef}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
           <div className={styles.formselect}>
             <label htmlFor="payment"> Payment</label>
             <select name="payment" id="payment" ref={payRef}>
@@ -35,7 +58,7 @@ export default function Pay() {
           </div>
           <button type="submit">Submit</button>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 }

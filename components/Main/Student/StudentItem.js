@@ -64,7 +64,6 @@ import styles from '../../../styles/Main/Student/StudentItem.module.css';
 // }
 
 export default function StudentItem(props) {
-  // console.log(props);
   return (
     <div>
       <Head></Head>
@@ -83,12 +82,15 @@ export default function StudentItem(props) {
         <table className={styles.listTable}>
           <tbody className={styles.tableBody}>
             <tr>
-              <td>{props.Student.enrolmentNumber}</td>
+              <td>{props.Student.studentId}</td>
               <td>{props.Student.firstName}</td>
               <td>{props.Student.lastName}</td>
-              <td>{props.Student.parentName}</td>
+              <td>{props.Student.fatherName}</td>
+              <td>{props.Student.motherName}</td>
               <td>{props.Student.phone}</td>
-              <td>{props.Student.DOB}</td>
+              <td>{props.Student.dob}</td>
+              <td>{props.Student.gender}</td>
+              <td>{props.Student.classLevel}</td>
             </tr>
           </tbody>
         </table>

@@ -21,6 +21,9 @@
 
 .openIcon {
   position: relative;
+  left: 95vw;
+  /* top: -4vh; */
+  z-index: 1;
 }
 
 @media screen and (max-width: 1550px) {
