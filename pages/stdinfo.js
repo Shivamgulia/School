@@ -24,7 +24,7 @@ export default function StdInfo() {
 
   useEffect(() => {
     if (status == 'completed') setStudents([studentDetails, ...students]);
-  }, [studentDetails]);
+  }, [studentDetails, status, students]);
 
   return (
     <div>
