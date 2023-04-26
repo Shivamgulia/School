@@ -44,10 +44,37 @@
   color: black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 0.5rem;
   display: grid;
   grid-template-columns: 50% 50%;
+}
+
+.oneinputdiv {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  /* display: grid; */
+  /* grid-template-columns: 50% 50%; */
+}
+
+.inputAddCont {
+  /* width: 50vw; */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  padding: 1rem;
+  gap: 2rem;
+  border-radius: 0.5rem;
+  /* align-content: center; */
+  /* justify-content: center; */
+  text-align: left;
+  background-color: rgb(236, 248, 236);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: grid;
+  justify-content: center;
+  text-align: center;
 }
 
 .formInput {

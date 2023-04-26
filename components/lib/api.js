@@ -33,19 +33,22 @@ export async function getSchoolStudent(props) {
 }
 
 export async function addStudent(props) {
+  const student = { schoolid: 1, ...props };
   let response = await fetch(`${url}/students`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       // Authorization: 'Bearer ' + props.token,
     },
-    body: JSON.stringify(props),
+    body: JSON.stringify(student),
   });
 
   let data = await response.json();
   if (!response.ok) {
     throw new Error(data.message || 'Could not Add Student.');
   }
+
+  console.log(data);
 
   return data;
 }

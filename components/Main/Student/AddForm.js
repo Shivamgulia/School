@@ -14,8 +14,11 @@ export default function AddForm() {
   const phoneRef = useRef();
   const genderRef = useRef();
   const classRef = useRef();
-  const schoolRef = useRef();
-  const studentRef = useRef();
+  const houseRef = useRef();
+  const streetRef = useRef();
+  const cityRef = useRef();
+  const stateRef = useRef();
+  const pincodeRef = useRef();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -24,24 +27,21 @@ export default function AddForm() {
   function submitionHandler(event) {
     event.preventDefault();
     setIsLoading(true);
-    // console.log(fNameRef.current.value);
-    // console.log(lNameRef.current.value);
-    // console.log(faNameRef.current.value);
-    // console.log(mNameRef.current.value);
-    // console.log(dobRef.current.value);
-    // console.log(phoneRef.current.value);
-    // console.log(classRef.current.value);
-    // console.log(genderRef.current.value);
     const student = {
-      schoolId: schoolRef.current.value,
-      studentId: studentRef.current.value,
       firstName: fNameRef.current.value,
       lastName: lNameRef.current.value,
       fatherName: faNameRef.current.value,
       motherName: mNameRef.current.value,
       dob: dobRef.current.value,
       gender: genderRef.current.value,
-      classLevel: classRef.current.value,
+      phone: phoneRef.current.value,
+      admissionDate: new Date(),
+      standard: classRef.current.value,
+      houseno: houseRef.current.value,
+      street: streetRef.current.value,
+      city: cityRef.current.value,
+      state: stateRef.current.value,
+      pincode: pincodeRef.current.value,
     };
     console.log(student);
     sendRequest(student);
@@ -56,24 +56,6 @@ export default function AddForm() {
       <form className={styles.form} onSubmit={submitionHandler}>
         <h3>Add Student</h3>
         <div className={styles.inputCont}>
-          <div className={styles.inputdiv}>
-            <input
-              type="number"
-              id="schoolId"
-              placeholder="School Id"
-              required
-              ref={schoolRef}
-              className={styles.formInput}
-            />
-            <input
-              type="text"
-              id="studentId"
-              placeholder="Student Id"
-              required
-              ref={studentRef}
-              className={styles.formInput}
-            />
-          </div>
           <div className={styles.inputdiv}>
             <input
               type="text"
@@ -123,7 +105,7 @@ export default function AddForm() {
             <input
               type="Date"
               id="dob"
-              placeholder="dd/mm/yyyy"
+              placeholder="Date Of Birth"
               required
               ref={dobRef}
               className={styles.formInput}
@@ -146,6 +128,55 @@ export default function AddForm() {
               ref={classRef}
               className={styles.formInput}
             />
+          </div>
+          <div className={styles.inputAddCont}>
+            <h3>Address</h3>
+            <div className={styles.inputdiv}>
+              <input
+                type="text"
+                id="houseno"
+                placeholder="House Number"
+                required
+                ref={houseRef}
+                className={styles.formInput}
+              />
+              <input
+                type="text"
+                id="Street"
+                placeholder="Street"
+                required
+                ref={streetRef}
+                className={styles.formInput}
+              />
+            </div>
+            <div className={styles.inputdiv}>
+              <input
+                type="text"
+                id="City"
+                placeholder="City"
+                required
+                ref={cityRef}
+                className={styles.formInput}
+              />
+              <input
+                type="text"
+                id="State"
+                placeholder="State"
+                required
+                ref={stateRef}
+                className={styles.formInput}
+              />
+            </div>
+            <div className={styles.oneinputdiv}>
+              <input
+                type="number"
+                id="pincode"
+                placeholder="Pin Code"
+                required
+                ref={pincodeRef}
+                className={styles.formInput}
+              />
+            </div>
           </div>
 
           <div className={styles.submitdiv}>
