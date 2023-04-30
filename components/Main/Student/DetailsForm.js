@@ -8,12 +8,14 @@ export default function DetailsForm(props) {
     event.preventDefault();
     props.showDetails(enrollmentRef.current.value);
   }
+
   return (
     <div className={styles.detailFormCont}>
       <form onSubmit={show}>
         <div className={styles.inputform}>
           {/* <label htmlFor="EnrolmentNumber">Enter Enrolment Number</label> */}
           <input
+            // {...(props.field ? (type = field) : (type = 'Number'))}
             type="Number"
             name="EnrolmentNumber"
             id="EnrolmentNumber"

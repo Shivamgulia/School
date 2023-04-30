@@ -35,6 +35,7 @@
   border: 3px rgb(64, 128, 1) solid;
   border-style: none none solid solid;
   border-radius: 0.3rem;
+  padding-left: 10px;
 }
 
 .inputform > input::placeholder {

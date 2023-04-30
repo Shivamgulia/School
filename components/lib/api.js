@@ -1,6 +1,6 @@
 const url = 'http://localhost:8080';
 
-export async function getStudentDetails(props) {
+export async function GetStudentDetails(props) {
   let response = await fetch(`${url}/students/1/${props}`, {
     method: 'GET',
     headers: {
@@ -13,7 +13,16 @@ export async function getStudentDetails(props) {
   if (!response.ok) {
     throw new Error(data.message || 'Could not Add Student.');
   }
+  // console.log(data);
+
   return data;
+  // return {
+  //   studentId: 1,
+  //   firstName: 'Shivam',
+  //   lastName: 'Gulia',
+  //   fatherName: 'JK',
+  //   phone: 8761234,
+  // };
 }
 
 export async function getSchoolStudent(props) {

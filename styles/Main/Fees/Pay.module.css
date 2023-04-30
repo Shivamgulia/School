@@ -3,9 +3,11 @@
   margin-top: 50px;
   gap: 2rem;
   margin: 2vh 2vw;
+  width: 50vw;
   grid-template-columns: minmax(200px, 38vw);
   align-content: center;
   justify-content: center;
+  padding-bottom: 20px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -26,81 +28,30 @@
   padding-top: 2vh;
 }
 
-.payForm {
-  display: grid;
-  justify-content: center;
-  gap: 2rem;
+@media screen and (max-width: 1300px) {
+  .payCont {
+    width: 60vw;
+    grid-template-columns: minmax(200px, 90vw);
+  }
 }
 
-.formselect {
-  display: grid;
-  gap: 0.2rem;
-  justify-content: center;
+@media screen and (max-width: 900px) {
+  .payCont {
+    width: 70vw;
+    grid-template-columns: minmax(200px, 90vw);
+  }
 }
 
-.forminput {
-  display: grid;
-  justify-content: center;
-  gap: 0.2rem;
-}
-
-.formselect > select {
-  width: 20vw;
-  /* background-color: rgb(106, 211, 2); */
-  background-color: inherit;
-  padding: 0.3rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 0.3rem;
-  border: 3px rgb(64, 128, 1) solid;
-  border-style: none none solid solid;
-}
-
-.forminput > input {
-  width: 20vw;
-  padding: 0.3rem;
-  /* background-color: rgb(106, 211, 2); */
-  background-color: inherit;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border: 3px rgb(64, 128, 1) solid;
-  border-style: none none solid solid;
-  border-radius: 0.3rem;
-}
-
-.payForm > button {
-  width: 20vw;
-  border-radius: 0.4rem;
-  border: 0;
-  padding: 10px;
-  /* background-color: rgb(106, 211, 2); */
-  background-color: inherit;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  font-size: 30px;
-  transition: all 0.5s;
-}
-
-.payForm > button:hover {
-  background-color: rgb(80, 158, 1);
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  /* border: 5px rgb(106, 211, 2) solid; */
-  border: 3px rgb(64, 128, 1) solid;
-  border-style: none none solid solid;
+@media screen and (max-width: 800px) {
+  .payCont {
+    width: 90vw;
+    grid-template-columns: minmax(200px, 90vw);
+  }
 }
 
 @media screen and (max-width: 700px) {
   .payCont {
+    width: 90vw;
     grid-template-columns: minmax(200px, 90vw);
-  }
-  .payForm > button {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .payCont {
-    grid-template-columns: minmax(200px, 90vw);
-  }
-  .payForm > button {
-    font-size: 10px;
   }
 }

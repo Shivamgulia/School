@@ -2,23 +2,24 @@ import { Fragment, useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import useHttp from '../../components/hooks/use-http';
-import Layout from '../../components/Layout/Layout';
+
 import Layout2 from '../../components/Layout/Layout2/Layout2';
 import Pay from '../../components/Main/Fees/Pay';
 import DetailsForm from '../../components/Main/Student/DetailsForm';
-import { getFeesDetails } from '../../components/lib/api';
+import { GetStudentDetails } from '../../components/lib/api';
 
 export default function PayFees() {
   const [getDets, setGetDets] = useState(false);
+
   const {
-    sendRequest: getFees,
-    data: FeesDetails,
+    sendRequest,
+    data: StudentDetails,
     status,
     error,
-  } = useHttp(getFeesDetails, false);
+  } = useHttp(GetStudentDetails, false);
 
-  function getStudentFeesDetails(props) {
-    getFees({ schoolId: 1, year: 2020, studentId: props });
+  function getStudentDetails(props) {
+    if (!(status === 'pending')) sendRequest(props);
   }
 
   useEffect(() => {
@@ -35,10 +36,10 @@ export default function PayFees() {
         <DetailsForm
           formFor="EnrolmentNumber"
           showDetails={(props) => {
-            getStudentFeesDetails(props);
+            getStudentDetails(props);
           }}
         />
-        {getDets && <Pay Fees={FeesDetails} />}
+        {getDets && <Pay Student={StudentDetails} />}
       </Layout2>
     </Fragment>
   );
