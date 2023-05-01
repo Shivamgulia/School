@@ -9,6 +9,7 @@ const sideLinks = [
   },
   { head: 'Principle', innerLinks: ['Student Details', 'Student List'] },
   { head: 'Profile', innerLinks: ['logout'] },
+  { head: 'Administration', innerLinks: ['School'] },
 ];
 
 export default function SideBar() {

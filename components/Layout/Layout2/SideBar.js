@@ -19,6 +19,12 @@ const sideLinks = [
     ],
   },
   { head: 'Profile', innerLinks: [{ name: 'logout', to: '/auth' }] },
+  { head: 'Administration',
+    innerLinks: [
+      { name: 'Admin Dshbrd', to: '/adminDashBoard'},
+      { name: 'Schools List', to: '/schoolList'},
+      { name: 'Add School', to: '/addSchool'},
+    ] }
 ];
 
 // const SideBar = () => {

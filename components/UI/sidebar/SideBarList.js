@@ -16,6 +16,7 @@ export default function SideBarList() {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
+  const [show4, setShow4] = useState(false);
   return (
     <div className={styles.sideListContainer}>
       <div className={styles.logo}>
@@ -122,6 +123,53 @@ export default function SideBarList() {
             </ul>
           )}
         </li>
+
+
+        <li>
+          <Link
+            href="/administration"
+            onClick={() => {
+              setShow4(!show4);
+            }}
+          >
+            <h3 className={styles.mainsideNav}>
+              <div>
+                <CgProfile size={15} /> Administration
+              </div>
+              <div>
+                {!show4 && <CgChevronDoubleDown size={15} />}
+                {show4 && <CgChevronDoubleUp size={15} />}
+              </div>
+            </h3>
+          </Link>
+          {show4 && (
+            <ul className={styles.innerLinks}>
+              <li>
+                <Link href="/adminDashboard">
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}Admin Dashboard
+                  </h4>
+                </Link>
+              </li>
+              <li>
+                <Link href="/schoolList" className={styles.innerLinks}>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}School List
+                  </h4>
+                </Link>
+              </li>
+              <li>
+                <Link href="/addSchool" className={styles.innerLinks}>
+                  <h4>
+                    <CgLoadbarAlt size={10} /> {` `}Add School
+                  </h4>
+                </Link>
+              </li>
+            </ul>
+          )}
+        </li>
+
+
       </ul>
     </div>
   );
