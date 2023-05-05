@@ -18,8 +18,10 @@ export default function PayFees() {
     error,
   } = useHttp(GetStudentDetails, false);
 
-  function getStudentDetails(props) {
-    if (!(status === 'pending')) sendRequest(props);
+  async function getStudentDetails(props) {
+    await setGetDets(false);
+    if (!(status === 'pending')) await sendRequest(props);
+    await setGetDets(true);
   }
 
   useEffect(() => {

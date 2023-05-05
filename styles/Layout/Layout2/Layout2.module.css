@@ -15,14 +15,14 @@
 
 .closeIcon {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 4rem;
   left: 10vw;
 }
 
 .openIcon {
-  position: relative;
+  position: fixed;
 
   top: 4rem;
 

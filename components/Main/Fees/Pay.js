@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, use, useEffect, useState } from 'react';
 import styles from '../../../styles/Main/Fees/Pay.module.css';
 import useHttp from '../../hooks/use-http';
 import { getFeesDetails } from '../../lib/api';
@@ -8,6 +8,7 @@ import PayForm from './PayForm';
 
 export default function Pay(props) {
   const [showFee, setShowFee] = useState(false);
+  const [year, setYear] = useState(null);
 
   const {
     sendRequest,
@@ -22,6 +23,7 @@ export default function Pay(props) {
       year: prop,
       studentId: props.Student.id.studentId,
     });
+    setYear(prop);
   }
 
   return (
@@ -42,7 +44,8 @@ export default function Pay(props) {
             getStudentDetails(props);
           }}
         />
-        {status == 'completed' && <PayForm fee={FeeDetails} />}
+
+        <PayForm fee={FeeDetails} Student={props.Student} year={year} />
       </Fragment>
     </div>
   );

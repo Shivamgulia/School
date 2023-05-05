@@ -82,15 +82,20 @@ export async function getFeesDetails(props) {
   return data;
 }
 
-export async function updateFees(props) {
-  let response = await fetch(`${url}/updatefees`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      // Authorization: 'Bearer ' + props.token,
-    },
-    body: JSON.stringify(props),
-  });
+export async function submitFees(props) {
+  // return true;
+
+  let response = await fetch(
+    `${url}/fees/${props.schoolId}/${props.year}/${props.studentId}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: 'Bearer ' + props.token,
+      },
+      body: JSON.stringify(props),
+    }
+  );
 
   let data = await response.json();
   if (!response.ok) {
