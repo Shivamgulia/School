@@ -12,9 +12,15 @@ export default function FeeDetails() {
         <title>Fees Details</title>
       </Head>
       <Layout2>
-        <div style={{ display: 'grid', 'justify-content': 'center' }}>
+        <div
+          style={{
+            display: 'grid',
+            'justify-content': 'center',
+            'margin-top': '30px',
+          }}
+        >
           <FeeGraph />
-          <FeeList />
+          {/* <FeeList /> */}
         </div>
       </Layout2>
     </Fragment>

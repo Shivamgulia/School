@@ -2,22 +2,23 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: space-around;
-  /* gap: 1rem; */
-  grid-template-rows: repeat(6, 50px);
-  grid-template-columns: 50% 50%;
+  gap: 0.5rem;
+  /* grid-template-rows: repeat(6, 50px); */
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
 }
 
 .checkCont {
-  display: grid;
-  grid-template-columns: 80% 10%;
-  justify-content: left;
-  gap: 0.2rem;
-  display: flex;
-  justify-content: center;
+  width: minmax(100px, 25vw);
+  width: 20vw;
+  border-radius: 8px;
+  margin: 0;
+  background-color: #0c66ed;
 }
 
 .checkCont > input {
-  /* height: 50px; */
+  /* height: 50px; *
   /* width: 50px; */
   width: 1.3rem;
   background-color: inherit;
@@ -26,11 +27,11 @@
 
 .monthCont {
   display: flex;
-  justify-content: center;
-  width: 15vw;
+  flex-wrap: contain;
+  justify-content: space-between;
   text-align: center;
   padding: 0.5rem;
-
+  gap: 1rem;
   border-radius: 5px;
   justify-content: space-between;
 }
@@ -45,22 +46,108 @@
 }
 
 .notPaid {
-  display: flex;
-  justify-content: center;
-  width: fit-content;
   background-color: rgb(255, 217, 217);
 }
 
 .paid {
-  display: flex;
-  justify-content: center;
-  width: fit-content;
   background-color: rgb(217, 247, 217);
 }
 
 .checked {
+  background-color: rgb(254, 234, 234);
+  border: 1px solid green;
+}
+
+.buttonDiv {
   display: flex;
   justify-content: center;
-  width: fit-content;
-  background-color: rgb(254, 234, 234);
+  align-items: center;
+}
+
+.submitButton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #171717;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.submitButton span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 30px;
+  background-color: #0c66ed;
+  border-radius: 50%;
+  transition: 0.6s ease;
+}
+
+.submitButton span:nth-child(6) {
+  position: relative;
+}
+
+.submitButton span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+
+.submitButton span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+
+.submitButton span:nth-child(3) {
+  transform: translate(-0.2em, 1.8em);
+}
+
+.submitButton span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+
+.submitButton span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+
+.submitButton:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}
+
+@media screen and (max-width: 1300px) {
+  .checkCont {
+    width: 25vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .checkCont {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .checkCont {
+    width: 38vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .checkCont {
+    width: 40vw;
+  }
+
+  .data {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .data {
+    font-size: 15px;
+  }
 }

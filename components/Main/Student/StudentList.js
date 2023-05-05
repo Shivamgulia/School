@@ -7,21 +7,25 @@ export default function StudentList(props) {
   return (
     <div className={styles.centered}>
       <h1>Student List</h1>
-      <table className={styles.listTable}>
-        <tbody className={styles.tableBody}>
-          <tr>
-            <th>SR. No.</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Father's Name</th>
-            <th>Mother's Name</th>
-            <th>Mobile/ Phone No.</th>
-            <th>Date of Birth</th>
-            <th>Gender</th>
-            <th>Class</th>
-          </tr>
-        </tbody>
-      </table>
+      <tbody>
+        <table className={styles.listTable}>
+          <tbody className={styles.tableBody}>
+            <tr>
+              <tbody>
+                <th>SR. No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Father's Name</th>
+                <th>Mother's Name</th>
+                <th>Mobile/ Phone No.</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Class</th>
+              </tbody>
+            </tr>
+          </tbody>
+        </table>
+      </tbody>
       {props.Students.map((item) => {
         return <StudentItem key={item.studentId} Student={item} />;
       })}

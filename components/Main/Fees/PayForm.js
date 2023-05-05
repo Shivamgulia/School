@@ -4,6 +4,7 @@ import useHttp from '../../hooks/use-http';
 import { submitFees } from '../../lib/api';
 
 export default function PayForm(props) {
+  // states for lists and varablies to get data from fee htttp request and also to check which one is seleted to submit feees
   const [isLoading, setIsLoading] = useState({ pro: true });
   const [checkArray, setCheckArray] = useState([
     { month: 1, paid: false, amount: 0 },
@@ -22,7 +23,11 @@ export default function PayForm(props) {
 
   const { sendRequest, error, status } = useHttp(submitFees, false);
 
+  // fee submit funstion
+
   function submitionHandler() {
+    // feeDTo object to get the months and amount for submit request
+
     let feeDTO = [];
     let a = feeDTO;
     a.filter(() => {
@@ -59,7 +64,7 @@ export default function PayForm(props) {
       },
     };
 
-    console.log(requestObj);
+    // console.log(requestObj);
     sendRequest(requestObj);
   }
 
@@ -67,9 +72,19 @@ export default function PayForm(props) {
   //
   //
 
+  // generating 12 month list with submitted fee and unsubmitted fees
   const [afterList, setAfterList] = useState([...monthList]);
   useEffect(() => {
     setIsLoading({ pro: true });
+
+    //reseting the checked array that contains check months
+
+    checkArray.map((i) => {
+      i.paid = false;
+      i.amount = 0;
+    });
+
+    //reseting the list that contains the months fees that have already been submited and not submited
 
     afterList.map((item) => {
       item.amount = 0;
@@ -77,7 +92,8 @@ export default function PayForm(props) {
       item.topay = false;
     });
 
-    console.log(afterList);
+    // chaging the list of submitted fees and not submitted fees to contain the data required
+    // console.log(afterList);
     let arr = afterList;
     console.log(arr);
     if (props.fee) {
@@ -112,7 +128,9 @@ export default function PayForm(props) {
               return (
                 <Fragment key={item.month}>
                   <div
-                    className={styles.checkCont}
+                    className={`${styles.checkCont} ${
+                      item.paid ? styles.paid : styles.notPaid
+                    } ${checkArray[item.mon - 1].paid ? styles.checked : null}`}
                     onClick={() => {
                       if (!item.paid) {
                         let arr = [...checkArray];
@@ -146,18 +164,26 @@ export default function PayForm(props) {
             })}
           </div>
         )}
-        <button
-          onClick={() => {
-            submitionHandler();
-          }}
-        >
-          Submit Fees
-        </button>
-        {status === 'completed' && (
-          <div>
-            <h1>Fee Submited</h1>
-          </div>
-        )}
+        <div className={styles.buttonDiv}>
+          <button
+            className={styles.submitButton}
+            onClick={() => {
+              submitionHandler();
+            }}
+          >
+            <span className={styles.circle1}></span>
+            <span className={styles.circle2}></span>
+            <span className={styles.circle3}></span>
+            <span className={styles.circle4}></span>
+            <span className={styles.circle5}></span>
+            <span className={styles.text}>Submit Fees</span>
+          </button>
+          {status === 'completed' && (
+            <div>
+              <h1>Fee Submited</h1>
+            </div>
+          )}
+        </div>
       </Fragment>
     );
 }
@@ -168,14 +194,12 @@ export default function PayForm(props) {
 //
 //
 
+// one month component
+
 function FeeMonth(props) {
   return (
     <Fragment>
-      <div
-        className={`${styles.monthCont} ${
-          props.data.paid ? styles.paid : styles.notPaid
-        } ${props.checked ? styles.checked : null}`}
-      >
+      <div className={`${styles.monthCont} `}>
         <h3 className={styles.data}>{props.data.month}</h3>
         {props.data.paid && (
           <h3 className={styles.data}>{props.data.amount}</h3>

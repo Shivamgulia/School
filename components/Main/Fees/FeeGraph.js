@@ -4,40 +4,43 @@ import { useEffect } from 'react';
 import { Chart } from 'chart.js';
 export default function FeeGraph(props) {
   const sub = 50;
-  const pen = 20;
+  const pen = 29;
+
   useEffect(() => {
     var ctx = document.getElementById('myChart').getContext('2d');
+    const data = {
+      datasets: [
+        {
+          label: 'Submitted',
+          data: [sub],
+          backgroundColor: ['rgb(158, 250, 158)'],
+          borderColor: ['rgb(158, 250, 158)'],
+          borderWidth: 1,
+        },
+        {
+          label: 'Pending',
+          data: [pen],
+          backgroundColor: ['rgb(252, 80, 80)'],
+          borderColor: ['rgb(252, 80, 80)'],
+          borderWidth: 1,
+        },
+      ],
+    };
     var myChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Submitted', 'Pending'],
-        datasets: [
-          {
-            data: [sub, pen],
-            borderColor: [
-              'rgb(75, 192, 192)',
-              'rgb(255, 205, 86)',
-              'rgb(255, 99, 132)',
-            ],
-            backgroundColor: [
-              'rgb(75, 192, 192 )',
-              'rgb(255, 205, 86)',
-              'rgb(255, 99, 132)',
-            ],
-            borderWidth: 2,
-          },
-        ],
-      },
+      type: 'bar',
+      data: data,
       options: {
         scales: {
           xAxes: [
             {
-              display: false,
+              barPercentage: 0.4,
             },
           ],
           yAxes: [
             {
-              display: false,
+              ticks: {
+                beginAtZero: true,
+              },
             },
           ],
         },
@@ -47,7 +50,6 @@ export default function FeeGraph(props) {
 
   return (
     <div className={styles.graphCont}>
-      {/* Doughnut chart */}
       <h1 className={styles.graphTitle}>Fee Statics</h1>
       <div>
         <div className={styles.graph}>

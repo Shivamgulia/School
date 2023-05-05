@@ -79,21 +79,25 @@ export default function StudentItem(props) {
         </div>
       </div> */}
       <div className={styles.centered}>
-        <table className={styles.listTable}>
-          <tbody className={styles.tableBody}>
-            <tr>
-              <td>{props.Student.studentId}</td>
-              <td>{props.Student.firstName}</td>
-              <td>{props.Student.lastName}</td>
-              <td>{props.Student.fatherName}</td>
-              <td>{props.Student.motherName}</td>
-              <td>{props.Student.phone}</td>
-              <td>{props.Student.dob}</td>
-              <td>{props.Student.gender}</td>
-              <td>{props.Student.classLevel}</td>
-            </tr>
-          </tbody>
-        </table>
+        <tbody>
+          <table className={styles.listTable}>
+            <tbody className={styles.tableBody}>
+              <tr>
+                <tbody>
+                  <td>{props.Student.studentId}</td>
+                  <td>{props.Student.firstName}</td>
+                  <td>{props.Student.lastName}</td>
+                  <td>{props.Student.fatherName}</td>
+                  <td>{props.Student.motherName}</td>
+                  <td>{props.Student.phone}</td>
+                  <td>{props.Student.dob}</td>
+                  <td>{props.Student.gender}</td>
+                  <td>{props.Student.classLevel}</td>
+                </tbody>
+              </tr>
+            </tbody>
+          </table>
+        </tbody>
       </div>
     </div>
   );
