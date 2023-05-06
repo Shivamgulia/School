@@ -9,19 +9,17 @@ export default function FeeGraph(props) {
   useEffect(() => {
     var ctx = document.getElementById('myChart').getContext('2d');
     const data = {
+      labels: ['Submitted', 'Pending'],
       datasets: [
         {
-          label: 'Submitted',
-          data: [sub],
-          backgroundColor: ['rgb(158, 250, 158)'],
-          borderColor: ['rgb(158, 250, 158)'],
-          borderWidth: 1,
-        },
-        {
-          label: 'Pending',
-          data: [pen],
-          backgroundColor: ['rgb(252, 80, 80)'],
-          borderColor: ['rgb(252, 80, 80)'],
+          label: ['Students'],
+          data: [{ y: sub }, { y: pen }],
+          fill: false,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: ['rgb(255, 99, 132)', 'rgba(75, 192, 192)'],
           borderWidth: 1,
         },
       ],
@@ -34,13 +32,17 @@ export default function FeeGraph(props) {
           xAxes: [
             {
               barPercentage: 0.4,
+              display: false,
             },
           ],
           yAxes: [
             {
               ticks: {
                 beginAtZero: true,
+                // display: true,
+                stepSize: sub / 4,
               },
+              display: false,
             },
           ],
         },
@@ -53,7 +55,7 @@ export default function FeeGraph(props) {
       <h1 className={styles.graphTitle}>Fee Statics</h1>
       <div>
         <div className={styles.graph}>
-          <canvas id="myChart"></canvas>
+          <canvas id='myChart'></canvas>
         </div>
       </div>
     </div>

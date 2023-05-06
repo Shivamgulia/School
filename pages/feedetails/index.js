@@ -3,7 +3,8 @@ import Head from 'next/head';
 import Layout from '../../components/Layout/Layout';
 import Layout2 from '../../components/Layout/Layout2/Layout2';
 import FeeGraph from '../../components/Main/Fees/FeeGraph';
-import FeeList from '../../components/Main/Fees/FeeList';
+
+import ClassGraph from '../../components/Main/Fees/ClassGraph';
 
 export default function FeeDetails() {
   return (
@@ -20,7 +21,7 @@ export default function FeeDetails() {
           }}
         >
           <FeeGraph />
-          {/* <FeeList /> */}
+          <ClassGraph />
         </div>
       </Layout2>
     </Fragment>
