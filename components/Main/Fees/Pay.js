@@ -17,6 +17,8 @@ export default function Pay(props) {
     error,
   } = useHttp(getFeesDetails, false);
 
+  // const combinedClasses = `${}`
+
   function getStudentDetails(prop) {
     sendRequest({
       schoolId: 1,
@@ -26,18 +28,48 @@ export default function Pay(props) {
     setYear(prop);
   }
 
+
   return (
     <div className={styles.payCont}>
       <Fragment>
         <div className={styles.details}>
-          <h1>Details </h1>
-          <h3>Enrollment Number : {props.Student.id.studentId}</h3>
-          <h3>
-            Name : {props.Student.firstName} {props.Student.lastName}
-          </h3>
-          <h3>Father Name : {props.Student.fatherName}</h3>
-          <h3>Phone : {props.Student.phone}</h3>
+          <h3 className={styles.detailsHead}>Student Details</h3>
+          <div className={styles.detailsBody}>
+            <div className={styles.detailsBodyCol1}>
+                <div className={styles.detailsCol1Row}>
+                  <h4>Enrollment Number</h4>
+                  <span>:</span>
+                </div>
+                <div className={styles.detailsCol1Row}>
+                  <h4>Name </h4>
+                  <span>:</span>
+                </div>
+                <div className={styles.detailsCol1Row}>
+                  <h4>Father Name</h4>
+                  <span>:</span>
+                </div>
+                <div className={styles.detailsCol1Row}>
+                  <h4>Phone No.</h4>
+                  <span>:</span>
+                </div>
+            </div>
+            <div className={styles.detailsBodyCol2}>
+                <div className={styles.detailsCol2Row}>
+                  <h4>{props.Student.id.studentId}</h4>
+                </div>
+                <div className={styles.detailsCol2Row}>
+                  <h4>{props.Student.firstName} {props.Student.lastName}</h4>
+                </div>
+                <div className={styles.detailsCol2Row}>
+                  <h4>{props.Student.fatherName}</h4>
+                </div>
+                <div className={styles.detailsCol2Row}>
+                  <h4>{props.Student.phone}</h4>
+                </div>
+            </div>
+          </div>
         </div>
+
         <DetailsForm
           formFor="Year"
           showDetails={(props) => {

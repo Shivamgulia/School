@@ -28,6 +28,48 @@
   padding-top: 2vh;
 }
 
+.detailsHead{
+  text-align: center;
+  /* color: gray; */
+}
+
+.detailsBody{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.detailsBodyCol1{
+
+}
+
+
+.detailsCol1Row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: baseline;
+
+}
+
+.detailsCol1Row > span{
+  font-weight: bold;
+  color: gray;
+}
+
+.detailsBodyCol2{
+
+}
+
+.detailsCol2Row{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  color: gray;
+}
+
+
 @media screen and (max-width: 1300px) {
   .payCont {
     width: 60vw;

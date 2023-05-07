@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 10% 90%;
   justify-content: center;
-
+  /* background-color: rgb(243, 237, 237); */
   /* gap: 2.5rem; */
 }
 

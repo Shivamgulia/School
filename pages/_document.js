@@ -52,7 +52,8 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      {/* added className to use the css variables globally */}
+      <body className="my-app">
         <Main />
         <NextScript />
       </body>
