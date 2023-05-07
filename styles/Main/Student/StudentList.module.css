@@ -10,14 +10,15 @@
 }
 
 .listTable {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-collapse: collapse;
   /* overflow-x: hidden; */
+  overflow: scroll;
 }
 
 .tableBody {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 
   /* overflow-x: visible; */
 }

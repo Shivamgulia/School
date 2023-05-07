@@ -1,6 +1,5 @@
 .sideBar {
   background-color: rgb(229, 243, 229);
-  position: sticky;
   box-shadow: 3px 0px 10px 1px #c4c7c5;
   height: 100vh;
   margin: 0;
@@ -8,10 +7,12 @@
   display: flex;
   width: 12.2vw;
   padding-top: 20px;
+  margin-top: 4rem;
 }
 .sideBarContainer {
   /* padding: 0 2rem; */
   /* padding-left: 0.5rem; */
+  position: fixed;
 }
 
 .sideBarListItem {
@@ -33,6 +34,7 @@
   color: rgb(33, 48, 38);
   border-radius: 5px;
   background-color: rgb(133, 214, 130);
+  /* position: fixed; */
 }
 .sideBarListTitle {
   font-size: 20px;
@@ -73,6 +75,7 @@
   .sideBar {
     width: 28vw;
     position: absolute;
+    position: fixed;
     left: 0;
   }
 }
@@ -81,6 +84,7 @@
   .sideBar {
     width: 28vw;
     position: absolute;
+    position: fixed;
     left: 0;
   }
 }
@@ -89,6 +93,7 @@
   .sideBar {
     width: 36vw;
     position: absolute;
+    position: fixed;
     left: 0;
   }
 }
@@ -97,6 +102,7 @@
   .sideBar {
     width: 42vw;
     position: absolute;
+    position: fixed;
     left: 0;
   }
 }

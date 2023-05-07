@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import DetailsForm from '../components/Main/Student/DetailsForm';
 import Layout from '../components/Layout/Layout';
 import Layout2 from '../components/Layout/Layout2/Layout2';
-import StudentItem from '../components/Main/Student/StudentItem';
+import StudentList from '../components/Main/Student/StudentList';
 import useHttp from '../components/hooks/use-http';
 import { getStudentDetails } from '../components/lib/api';
 
 export default function StdInfo() {
-  const [showDets, setShowDets] = useState(false);
+  const [students, setStudents] = useState([]);
 
   const {
     sendRequest,
@@ -19,19 +19,13 @@ export default function StdInfo() {
   } = useHttp(getStudentDetails, true);
 
   function ShowDetails(props) {
-    setShowDets(props);
+    sendRequest(props);
   }
 
-  // const date1 = new Date();
+  useEffect(() => {
+    if (status == 'completed') setStudents([studentDetails, ...students]);
+  }, [studentDetails, status, students]);
 
-  const student = {
-    enrolmentNumber: 101,
-    firstName: 'Shivam',
-    lastName: 'Gulia',
-    parentName: 'Jitendra Kumar',
-    // DOB: date1,
-    phone: 8279373573,
-  };
   return (
     <div>
       <Head>
@@ -39,9 +33,9 @@ export default function StdInfo() {
       </Head>
       <Layout2>
         <DetailsForm formFor="EnrolmentNumber" showDetails={ShowDetails} />
-        {showDets && (
+        {status == 'completed' && !error && (
           <div>
-            <StudentItem Student={student}></StudentItem>
+            <StudentList Students={students}></StudentList>
           </div>
         )}
       </Layout2>

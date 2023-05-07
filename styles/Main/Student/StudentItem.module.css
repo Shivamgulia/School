@@ -32,11 +32,11 @@
 .listTable {
   border: 1px solid black;
   border-collapse: collapse;
-  /* overflow-x: hidden; */
+  overflow-x: scroll;
 }
 
 .tableBody {
-  display: grid;
+  /* display: grid; */
   /* overflow-x: visible; */
 }
 

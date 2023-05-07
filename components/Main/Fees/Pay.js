@@ -1,41 +1,52 @@
-import { useRef } from 'react';
-
+import { Fragment, use, useEffect, useState } from 'react';
 import styles from '../../../styles/Main/Fees/Pay.module.css';
+import useHttp from '../../hooks/use-http';
+import { getFeesDetails } from '../../lib/api';
+import DetailsForm from '../Student/DetailsForm';
 
-export default function Pay() {
-  const payRef = useRef();
-  const amountRef = useRef();
+import PayForm from './PayForm';
 
-  function submitionHandler(event) {
-    event.preventDefault();
-    console.log(payRef.current.value);
-    console.log(amountRef.current.value);
+export default function Pay(props) {
+  const [showFee, setShowFee] = useState(false);
+  const [year, setYear] = useState(null);
+
+  const {
+    sendRequest,
+    data: FeeDetails,
+    status,
+    error,
+  } = useHttp(getFeesDetails, false);
+
+  function getStudentDetails(prop) {
+    sendRequest({
+      schoolId: 1,
+      year: prop,
+      studentId: props.Student.id.studentId,
+    });
+    setYear(prop);
   }
+
   return (
     <div className={styles.payCont}>
-      <div className={styles.details}>
-        <h1>Details </h1>
-        <h3>Enrollment Number : </h3>
-        <h3>Name : </h3>
-        <h3>Parents Name :</h3>
-        <h3>Phone : </h3>
-      </div>
-      <div className={styles.formCont}>
-        <form action="" className={styles.payForm} onSubmit={submitionHandler}>
-          <div className={styles.formselect}>
-            <label htmlFor="payment"> Payment</label>
-            <select name="payment" id="payment" ref={payRef}>
-              <option value="Complete">Full Payment</option>
-              <option value="Partial">Partial Payment</option>
-            </select>
-          </div>
-          <div className={styles.forminput}>
-            <label htmlFor="amount">Amount</label>
-            <input type="number" id="amount" ref={amountRef} />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <Fragment>
+        <div className={styles.details}>
+          <h1>Details </h1>
+          <h3>Enrollment Number : {props.Student.id.studentId}</h3>
+          <h3>
+            Name : {props.Student.firstName} {props.Student.lastName}
+          </h3>
+          <h3>Father Name : {props.Student.fatherName}</h3>
+          <h3>Phone : {props.Student.phone}</h3>
+        </div>
+        <DetailsForm
+          formFor="Year"
+          showDetails={(props) => {
+            getStudentDetails(props);
+          }}
+        />
+
+        <PayForm fee={FeeDetails} Student={props.Student} year={year} />
+      </Fragment>
     </div>
   );
 }
