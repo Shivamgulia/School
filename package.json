@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "chart.js": "^2.9.4",
+    "chartjs": "^0.3.24",
     "material-ui": "^0.20.2",
     "next": "13.3.0",
     "react": "18.2.0",

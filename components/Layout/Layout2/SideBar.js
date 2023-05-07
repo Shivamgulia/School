@@ -128,7 +128,7 @@ export default function SideBar() {
                 <ul className={styles.sideBarList}>
                   {item.innerLinks.map((lin) => {
                     return (
-                      <Fragment key={lin}>
+                      <Fragment key={lin.name}>
                         <Link href={lin.to} className={styles.link}>
                           <li
                             className={`${styles.sideBarListItem} ${styles.active}`}
