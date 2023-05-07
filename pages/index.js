@@ -17,7 +17,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout2>
-        <h1>Hi Welome to the School Portal</h1>
+        <div style={{ margin: '20px' }}>
+          <h1>Hi Welome to the School Portal</h1>
+        </div>
       </Layout2>
     </div>
   );
