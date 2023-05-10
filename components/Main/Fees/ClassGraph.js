@@ -1,9 +1,22 @@
-import { Chart, Utils } from 'chart.js';
+import { Chart } from 'chart.js';
 import { useEffect } from 'react';
 
-import styles from '../../../styles/Main/Fees/FeeGraph.module.css';
+import styles from '../../../styles/Main/Fees/ClassGraph.module.css';
 
-export default function ClassGraph() {
+export default function ClassGraph(props) {
+  const submittedList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const pendingList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  //to put the data from api request into the array
+  useEffect(() => {
+    props.data.map((item) => {
+      const st = item.standard;
+      submittedList[st - 1] = item.totalSubmitted;
+      pendingList[st - 1] = item.totalPending;
+    });
+  }, [props]);
+
+  //to define the chart
   useEffect(() => {
     var chartclass = document.getElementById('myChart1').getContext('2d');
     const data = {
@@ -24,7 +37,7 @@ export default function ClassGraph() {
       datasets: [
         {
           label: 'Submitted',
-          data: [65, 60, 5, 81, 56, 55, 40, 58, 25, 15, 74, 86],
+          data: submittedList,
 
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -61,7 +74,7 @@ export default function ClassGraph() {
         },
         {
           label: 'Pending',
-          data: [12, 23, 12, 4, 2, 5, 2, 12, 25, 24, 22, 13],
+          data: pendingList,
 
           backgroundColor: [
             'rgba(75, 192, 192, 0.2)',
@@ -107,7 +120,6 @@ export default function ClassGraph() {
             {
               ticks: {
                 beginAtZero: true,
-
                 // display: true,
               },
             },
@@ -115,7 +127,7 @@ export default function ClassGraph() {
           yAxes: [
             {
               barWidth: 0,
-              display: false,
+              // display: false,
             },
           ],
         },
@@ -127,7 +139,7 @@ export default function ClassGraph() {
       <h1 className={styles.graphTitle}>Class Fee Statics</h1>
       <div>
         <div className={styles.graph}>
-          <canvas id='myChart1'></canvas>
+          <canvas id='myChart1' className={styles.chartCanvas}></canvas>
         </div>
       </div>
     </div>

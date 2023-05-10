@@ -13,7 +13,7 @@ export default function FeeGraph(props) {
       datasets: [
         {
           label: ['Students'],
-          data: [{ y: sub }, { y: pen }],
+          data: [{ y: props.sub }, { y: props.pen }],
           fill: false,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -32,7 +32,7 @@ export default function FeeGraph(props) {
           xAxes: [
             {
               barPercentage: 0.4,
-              display: false,
+              // display: false,
             },
           ],
           yAxes: [
@@ -42,7 +42,7 @@ export default function FeeGraph(props) {
                 // display: true,
                 stepSize: sub / 4,
               },
-              display: false,
+              // display: false,
             },
           ],
         },
