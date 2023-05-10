@@ -118,7 +118,7 @@ export default function SideBar() {
                 Add Student
               </li>
             </Link>
-            <Link href='' className={styles.link}>
+            <Link href='/payfees' className={styles.link}>
               <li className={`${styles.sideBarListItem} ${styles.active}`}>
                 PayFees
               </li>
@@ -128,12 +128,12 @@ export default function SideBar() {
         <div className={styles.SideBarDashboard}>
           <h4 className={styles.sideBarListTitle}>Principle</h4>
           <ul className={styles.sideBarList}>
-            <Link href='' className={styles.link}>
+            <Link href='/stdinfo' className={styles.link}>
               <li className={`${styles.sideBarListItem} ${styles.active}`}>
                 Student Details
               </li>
             </Link>
-            <Link href='' className={styles.link}>
+            <Link href='/stdlist' className={styles.link}>
               <li className={`${styles.sideBarListItem} ${styles.active}`}>
                 Student List
               </li>
@@ -143,7 +143,7 @@ export default function SideBar() {
         <div className={styles.SideBarDashboard}>
           <h4 className={styles.sideBarListTitle}>Profile</h4>
           <ul className={styles.sideBarList}>
-            <Link href='' className={styles.link}>
+            <Link href='/auth' className={styles.link}>
               <li className={`${styles.sideBarListItem} ${styles.active}`}>
                 Log Out
               </li>

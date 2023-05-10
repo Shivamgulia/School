@@ -50,20 +50,15 @@
   left: 10vw;
   margin-left: 5px;
   width: 0;
-
-  transition: all 0.2s;
+  margin-top: -50px;
+  padding-top: 20px;
+  z-index: -1;
+  background-color: inherit;
+  transition: all 0.1s;
 }
 
 .wrapper:hover .deepDiv {
-  position: absolute;
-  left: 10vw;
-  margin-top: -50px;
-  margin-left: 5px;
   width: 10vw;
-  padding-top: 20px;
-  z-index: -1;
-  height: 100vh;
-  background-color: inherit;
 }
 
 .sideBarListTitle {
