@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import useHttp from '../../hooks/use-http';
 import { addStudent } from '../../lib/api';
@@ -19,6 +19,10 @@ export default function AddForm() {
   const cityRef = useRef();
   const stateRef = useRef();
   const pincodeRef = useRef();
+  const emailRef = useRef();
+  const fileRef = useRef();
+  const [photo, setPhoto] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,6 +30,7 @@ export default function AddForm() {
 
   function submitionHandler(event) {
     event.preventDefault();
+    console.log(photo);
     setIsLoading(true);
     const student = {
       firstName: fNameRef.current.value,
@@ -42,11 +47,24 @@ export default function AddForm() {
       city: cityRef.current.value,
       state: stateRef.current.value,
       pincode: pincodeRef.current.value,
+      email: emailRef.current.value,
     };
     console.log(student);
     sendRequest(student);
     setIsLoading(false);
   }
+
+  console.log(photo);
+
+  useEffect(() => {
+    if (photo) {
+      const reader = new FileReader();
+      reader.readAsDataURL(photo);
+      reader.onload = () => {
+        setPreview(reader.result);
+      };
+    }
+  }, [photo]);
 
   if (status == 'pending') {
     return <div>loading</div>;
@@ -56,19 +74,54 @@ export default function AddForm() {
       <form className={styles.form} onSubmit={submitionHandler}>
         <h3>Add Student</h3>
         <div className={styles.inputCont}>
+          <div className={`${styles.inputdiv} ${styles.photofield}`}>
+            <input
+              type='file'
+              id='photo'
+              placeholder='Upload Photo'
+              required
+              hidden
+              ref={fileRef}
+              onChange={(e) => {
+                setPhoto(e.target.files[0]);
+                console.log(e.target.files[0]);
+                console.log(photo);
+              }}
+            />
+            <button
+              onClick={() => {
+                fileRef.current.click();
+              }}
+              type='button'
+              className={`${styles.buttonDownload}`}
+            >
+              Upload Photo
+            </button>
+            {preview && (
+              <div className={styles.formInput}>
+                <img
+                  src={preview}
+                  alt='uploaded photo'
+                  width='100px'
+                  height='100px'
+                />
+                <p>{photo.name}</p>
+              </div>
+            )}
+          </div>
           <div className={styles.inputdiv}>
             <input
-              type="text"
-              id="fname"
-              placeholder="First Name"
+              type='text'
+              id='fname'
+              placeholder='First Name'
               required
               ref={fNameRef}
               className={styles.formInput}
             />
             <input
-              type="text"
-              id="lname"
-              placeholder="Last Name"
+              type='text'
+              id='lname'
+              placeholder='Last Name'
               required
               ref={lNameRef}
               className={styles.formInput}
@@ -76,16 +129,16 @@ export default function AddForm() {
           </div>
           <div className={styles.inputdiv}>
             <input
-              type="text"
-              id="pname"
+              type='text'
+              id='pname'
               placeholder="Father's Number"
               required
               ref={faNameRef}
               className={styles.formInput}
             />
             <input
-              type="text"
-              id="mname"
+              type='text'
+              id='mname'
               placeholder="Mother's Number"
               required
               ref={mNameRef}
@@ -94,18 +147,18 @@ export default function AddForm() {
           </div>
           <div className={styles.inputdiv}>
             <select
-              name="gender"
-              id="gender"
+              name='gender'
+              id='gender'
               className={styles.formInput}
               ref={genderRef}
             >
-              <option value="F">Female</option>
-              <option value="M">Male</option>
+              <option value='F'>Female</option>
+              <option value='M'>Male</option>
             </select>
             <input
-              type="Date"
-              id="dob"
-              placeholder="Date Of Birth"
+              type='Date'
+              id='dob'
+              placeholder='Date Of Birth'
               required
               ref={dobRef}
               className={styles.formInput}
@@ -113,17 +166,26 @@ export default function AddForm() {
           </div>
           <div className={styles.inputdiv}>
             <input
-              type="text"
-              id="phone"
-              placeholder="Phone Number"
+              type='text'
+              id='phone'
+              placeholder='Phone Number'
               required
               ref={phoneRef}
               className={styles.formInput}
             />
             <input
-              type="number"
-              id="class"
-              placeholder="Class"
+              type='text'
+              id='email'
+              placeholder='Email'
+              ref={emailRef}
+              className={styles.formInput}
+            />
+          </div>
+          <div className={styles.oneinputdiv}>
+            <input
+              type='number'
+              id='class'
+              placeholder='Class'
               required
               ref={classRef}
               className={styles.formInput}
@@ -133,17 +195,17 @@ export default function AddForm() {
             <h3>Address</h3>
             <div className={styles.inputdiv}>
               <input
-                type="text"
-                id="houseno"
-                placeholder="House Number"
+                type='text'
+                id='houseno'
+                placeholder='House Number'
                 required
                 ref={houseRef}
                 className={styles.formInput}
               />
               <input
-                type="text"
-                id="Street"
-                placeholder="Street"
+                type='text'
+                id='Street'
+                placeholder='Street'
                 required
                 ref={streetRef}
                 className={styles.formInput}
@@ -151,17 +213,17 @@ export default function AddForm() {
             </div>
             <div className={styles.inputdiv}>
               <input
-                type="text"
-                id="City"
-                placeholder="City"
+                type='text'
+                id='City'
+                placeholder='City'
                 required
                 ref={cityRef}
                 className={styles.formInput}
               />
               <input
-                type="text"
-                id="State"
-                placeholder="State"
+                type='text'
+                id='State'
+                placeholder='State'
                 required
                 ref={stateRef}
                 className={styles.formInput}
@@ -169,9 +231,9 @@ export default function AddForm() {
             </div>
             <div className={styles.oneinputdiv}>
               <input
-                type="number"
-                id="pincode"
-                placeholder="Pin Code"
+                type='number'
+                id='pincode'
+                placeholder='Pin Code'
                 required
                 ref={pincodeRef}
                 className={styles.formInput}
@@ -180,7 +242,7 @@ export default function AddForm() {
           </div>
 
           <div className={styles.submitdiv}>
-            <button type="submit" className={styles.submitButton}>
+            <button type='submit' className={styles.submitButton}>
               {isLoading ? 'Loading' : 'Submit'}
             </button>
           </div>

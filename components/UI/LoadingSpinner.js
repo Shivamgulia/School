@@ -104,6 +104,7 @@ export default function LoadingSpinner() {
           </g>
         </g>
       </svg>
+      <h4>Loading ....</h4>
     </div>
   );
 }

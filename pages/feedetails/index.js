@@ -12,12 +12,11 @@ import styles from '../../styles/feedetails.module.css';
 //TODO use api request to show graph, sql script email in student and school , student ma photo, email
 
 export default function FeeDetails() {
-  const [graph, setGraph] = useState(false);
+  const [graph, setGraph] = useState(true);
   const d = new Date();
-  let month = d.getMonth();
-  let year = d.getFullYear();
-  const yearRef = useRef();
-  const monthRef = useRef();
+
+  const [year, setYear] = useState(d.getFullYear());
+  const [month, setMonth] = useState(d.getMonth());
   const {
     sendRequest,
     data: graphData,
@@ -27,7 +26,7 @@ export default function FeeDetails() {
 
   useEffect(() => {
     sendRequest({ month: month, year: year });
-  }, [year, month]);
+  }, []);
 
   return (
     <Fragment>
@@ -41,6 +40,7 @@ export default function FeeDetails() {
             <input
               className={styles.checkInput}
               type='checkbox'
+              checked={graph}
               onClick={() => {
                 setGraph(!graph);
               }}
@@ -56,58 +56,61 @@ export default function FeeDetails() {
             onSubmit={(event) => {
               event.preventDefault();
               sendRequest({
-                month: monthRef.current.value,
-                year: yearRef.current.value,
+                month: month,
+                year: year,
               });
             }}
           >
-            <div>
-              <div className={styles.group}>
-                <input
-                  type='number'
-                  name='year'
-                  id='year'
-                  ref={yearRef}
-                  required
-                  className={styles.input}
-                />
-                <span className={styles.highlight}></span>
-                <span className={styles.bar}></span>
-                <label className={styles.label}>Year</label>
+            <div className={styles.forminputs}>
+              <div>
+                <div className={styles.group}>
+                  <input
+                    type='number'
+                    name='year'
+                    id='year'
+                    value={year}
+                    onChange={(event) => {
+                      setYear(event.target.value);
+                    }}
+                    required
+                    className={styles.input}
+                  />
+                  <span className={styles.highlight}></span>
+                  <span className={styles.bar}></span>
+                  <label className={styles.label}>Year</label>
+                </div>
               </div>
 
-              {/* <label htmlFor='year'></label>
-                <input
+              <div className={styles.selectdiv}>
+                {/* <label htmlFor='month'>Month</label> */}
+                <select
                   type='number'
-                  name='year'
-                  id='year'
-                  ref={yearRef}
+                  name='month'
+                  id='month'
+                  value={month}
+                  onChange={(event) => {
+                    setMonth(event.target.value);
+                  }}
+                  className={styles.select}
                   required
-                /> */}
-            </div>
-            <div className={styles.selectdiv}>
-              <label htmlFor='month'>Month</label>
-              <select
-                type='number'
-                name='month'
-                id='month'
-                ref={monthRef}
-                className={styles.select}
-                required
-              >
-                <option value='1'>Jan</option>
-                <option value='2'>Feb</option>
-                <option value='3'>Mar</option>
-                <option value='4'>Apr</option>
-                <option value='5'>May</option>
-                <option value='6'>Jun</option>
-                <option value='7'>Jul</option>
-                <option value='8'>Aug</option>
-                <option value='9'>Sep</option>
-                <option value='10'>Oct</option>
-                <option value='11'>Nov</option>
-                <option value='12'>Dec</option>
-              </select>
+                >
+                  <option value='' selected='selected' disabled='disabled'>
+                    Month
+                  </option>
+                  <option value='1'>Jan</option>
+                  <option value='2'>Feb</option>
+                  <option value='3'>Mar</option>
+                  <option value='4'>Apr</option>
+                  <option value='5'>May</option>
+                  <option value='6'>Jun</option>
+                  <option value='7'>Jul</option>
+                  <option value='8'>Aug</option>
+                  <option value='9'>Sep</option>
+                  <option value='10'>Oct</option>
+                  <option value='11'>Nov</option>
+                  <option value='12'>Dec</option>
+                </select>
+              </div>
             </div>
             <div>
               <button type='submit' className={styles.subbutton}>
