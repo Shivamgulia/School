@@ -1,5 +1,7 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import Head from 'next/head';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout/Layout';
 import Layout2 from '../../components/Layout/Layout2/Layout2';
@@ -10,6 +12,15 @@ import { getSchoolStudent } from '../../components/lib/api';
 
 export default function StdList() {
   const [showForm, setShowForm] = useState(false);
+
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session.status === 'unauthenticated') {
+      router.push('/auth');
+    }
+  }, [session]);
 
   const {
     sendRequest,
@@ -28,7 +39,7 @@ export default function StdList() {
         <title>Student List</title>
       </Head>
       <Layout2>
-        <DetailsForm formFor="Class" showDetails={ShowDetails} />
+        <DetailsForm formFor='Class' showDetails={ShowDetails} />
         {status == 'completed' && <StudentList Students={loadedStudents} />}
       </Layout2>
     </Fragment>

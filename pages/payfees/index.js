@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import useHttp from '../../components/hooks/use-http';
 
@@ -10,6 +12,15 @@ import { GetStudentDetails } from '../../components/lib/api';
 
 export default function PayFees() {
   const [getDets, setGetDets] = useState(false);
+
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session.status === 'unauthenticated') {
+      router.push('/auth');
+    }
+  }, [session]);
 
   const {
     sendRequest,
@@ -36,7 +47,7 @@ export default function PayFees() {
       </Head>
       <Layout2>
         <DetailsForm
-          formFor="EnrolmentNumber"
+          formFor='EnrolmentNumber'
           showDetails={(props) => {
             getStudentDetails(props);
           }}

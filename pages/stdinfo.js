@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import DetailsForm from '../components/Main/Student/DetailsForm';
 import Layout from '../components/Layout/Layout';
@@ -10,6 +12,15 @@ import { getStudentDetails } from '../components/lib/api';
 
 export default function StdInfo() {
   const [students, setStudents] = useState([]);
+
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session.status === 'unauthenticated') {
+      router.push('/auth');
+    }
+  }, [session]);
 
   const {
     sendRequest,
@@ -32,7 +43,7 @@ export default function StdInfo() {
         <title>Student Details</title>
       </Head>
       <Layout2>
-        <DetailsForm formFor="EnrolmentNumber" showDetails={ShowDetails} />
+        <DetailsForm formFor='EnrolmentNumber' showDetails={ShowDetails} />
         {status == 'completed' && !error && (
           <div>
             <StudentList Students={students}></StudentList>

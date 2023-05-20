@@ -51,14 +51,32 @@
   margin-left: 5px;
   width: 0;
   margin-top: -50px;
-  padding-top: 20px;
+  /* width: 200px; */
+  /* box-shadow: 3px 0px 10px 1px #c4c7c5; */
   z-index: -1;
   background-color: inherit;
   transition: all 0.1s;
+  background-color: rgb(229, 243, 229);
+  border-radius: 5px;
+  place-items: center;
+  padding: 0;
+  /* height: 95vh; */
+
+  /* overflow: visible; */
+}
+
+.deepDiv > ul > a {
+  padding-left: 0;
+  margin: 0;
+}
+
+.deepDiv > ul > a > li {
+  padding-left: 0;
 }
 
 .wrapper:hover .deepDiv {
-  width: 10vw;
+  width: 200px;
+  box-shadow: 3px 0px 10px 1px #c4c7c5;
 }
 
 .sideBarListTitle {
@@ -97,6 +115,9 @@
   .sideBar {
     width: 20vw;
   }
+  .deepDiv {
+    left: 16vw;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -105,6 +126,9 @@
     position: absolute;
     position: fixed;
     left: 0;
+  }
+  .deepDiv {
+    left: 24vw;
   }
 }
 
@@ -115,6 +139,9 @@
     position: fixed;
     left: 0;
   }
+  .deepDiv {
+    left: 24vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -124,6 +151,9 @@
     position: fixed;
     left: 0;
   }
+  .deepDiv {
+    left: 32vw;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -132,5 +162,8 @@
     position: absolute;
     position: fixed;
     left: 0;
+  }
+  .deepDiv {
+    left: 38vw;
   }
 }

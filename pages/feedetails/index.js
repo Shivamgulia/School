@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
-import Layout from '../../components/Layout/Layout';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import Layout2 from '../../components/Layout/Layout2/Layout2';
 import FeeGraph from '../../components/Main/Fees/FeeGraph';
 import ClassGraph from '../../components/Main/Fees/ClassGraph';
@@ -14,6 +15,18 @@ import styles from '../../styles/feedetails.module.css';
 export default function FeeDetails() {
   const [graph, setGraph] = useState(true);
   const d = new Date();
+
+  // to check if loged in
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session.status === 'unauthenticated') {
+      router.push('/auth');
+    }
+  }, [session]);
+
+  //
 
   const [year, setYear] = useState(d.getFullYear());
   const [month, setMonth] = useState(d.getMonth());

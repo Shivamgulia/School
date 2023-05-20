@@ -89,9 +89,9 @@ export default function SideBar() {
           <h4 className={styles.sideBarListTitle}>Management</h4>
           <ul className={styles.sideBarList}>
             <div className={styles.wrapper}>
-              <Link href='/feedetails' className={styles.link}>
+              <Link href='' className={styles.link}>
                 <li className={`${styles.sideBarListItem} ${styles.active}`}>
-                  Fee Details
+                  Dashboard
                 </li>
               </Link>
               <div className={styles.deepDiv}>
@@ -107,7 +107,7 @@ export default function SideBar() {
                     <li
                       className={`${styles.sideBarListItem} ${styles.active}`}
                     >
-                      Fee Details
+                      School Statics
                     </li>
                   </Link>
                 </ul>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from '../../../styles/Layout/Layout2/TopBar.module.css';
 
 import { CgBoy, CgLogOut } from 'react-icons/cg';
+import { signOut } from 'next-auth/react';
 // import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 // import SettingsIcon from '@material-ui/icons/Settings';
 // import LanguageIcon from '@material-ui/icons/Language';
@@ -21,9 +22,9 @@ const TopBar = () => {
           {/* </div> */}
           {/* <SettingsIcon className={styles.settings} /> */}
           {/* <LanguageIcon className={styles.language} /> */}
-          <Link className={styles.profileIcon} href="/auth">
+          <button className={styles.profileIcon} onClick={signOut}>
             <CgLogOut size={30} />
-          </Link>
+          </button>
         </div>
       </div>
     </div>
