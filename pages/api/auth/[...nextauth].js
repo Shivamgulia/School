@@ -16,22 +16,35 @@ const authOptions = {
       async authorize(credentials, req) {
         const user = { id: '1', name: 'J Smith', email: 'jsmith@example.com' };
 
-        const result = await fetch('http://localhost:8080/api/v1/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            userName: credentials.email,
-            password: credentials.password,
-          }),
-        });
-        console.log(JSON.stringify(result));
-        if (result.ok) return result;
+        const result = await fetch(
+          'http://localhost:8080/api/v1/auth/authenticate',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: credentials.email,
+              password: credentials.password,
+            }),
+          }
+        );
+        const data = await result.json();
+        console.log(data);
+        if (result.ok) return data;
         throw Error('Invalid');
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+    async session({ session, token, user }) {
+      session.user = token;
+      return session;
+    },
+  },
   pages: {
     signIn: '/auth',
     error: '/auth',

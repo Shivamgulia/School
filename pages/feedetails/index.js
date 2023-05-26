@@ -24,7 +24,7 @@ export default function FeeDetails() {
     if (session.status === 'unauthenticated') {
       router.push('/auth');
     }
-  }, [session]);
+  }, [session, session.status, session.data]);
 
   //
 
@@ -38,7 +38,13 @@ export default function FeeDetails() {
   } = useHttp(graphList, false);
 
   useEffect(() => {
-    sendRequest({ month: month, year: year });
+    if (session.status === 'authenticated')
+      sendRequest({
+        month: month,
+        year: year,
+        token: session.data.user.access_token,
+      });
+    console.log(graphData);
   }, []);
 
   return (
@@ -53,7 +59,7 @@ export default function FeeDetails() {
             <input
               className={styles.checkInput}
               type='checkbox'
-              checked={graph}
+              defaultChecked={graph}
               onClick={() => {
                 setGraph(!graph);
               }}
@@ -71,6 +77,7 @@ export default function FeeDetails() {
               sendRequest({
                 month: month,
                 year: year,
+                token: session.data.user.access_token,
               });
             }}
           >
@@ -107,7 +114,7 @@ export default function FeeDetails() {
                   className={styles.select}
                   required
                 >
-                  <option value='' selected='selected' disabled='disabled'>
+                  <option value='' disabled='disabled'>
                     Month
                   </option>
                   <option value='1'>Jan</option>
@@ -135,8 +142,10 @@ export default function FeeDetails() {
           {/* loading state */}
           {status === 'pending' && <LoadingSpinner />}
 
+          {error && <h1>{error}</h1>}
+
           {/* graphs */}
-          {status === 'completed' && (
+          {status === 'completed' && graphData && (
             <div>
               {graph && (
                 <FeeGraph
@@ -144,7 +153,9 @@ export default function FeeDetails() {
                   sub={graphData.totalStudentSubmittedFee}
                 />
               )}
-              {!graph && <ClassGraph data={graphData.classWiseList} />}
+              {status === 'completed' && graphData && !graph && (
+                <ClassGraph data={graphData.classWiseList} />
+              )}
             </div>
           )}
         </div>

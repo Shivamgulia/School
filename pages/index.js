@@ -12,6 +12,8 @@ export default function Home() {
   const session = useSession();
   const router = useRouter();
 
+  console.log(session);
+
   useEffect(() => {
     if (session.status === 'unauthenticated') {
       router.push('/auth');
@@ -20,7 +22,7 @@ export default function Home() {
 
   if (session.status === 'loading')
     return (
-      <div className='centered'>
+      <div style={{ display: 'grid', placeItems: 'center' }}>
         <LoadingSpinner />
       </div>
     );

@@ -28,7 +28,7 @@ function httpReducer(state, action) {
   return state;
 }
 
-function useHttp(requestFunction, startWithPending = false) {
+function useHttp(requestFunction, startWithPending) {
   const [httpState, dispatch] = useReducer(httpReducer, {
     status: startWithPending ? 'pending' : null,
     data: null,

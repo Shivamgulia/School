@@ -8,6 +8,7 @@ export default function Login() {
   const uNameRef = useRef();
   const passwordRef = useRef();
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(false);
 
   const session = useSession();
   const router = useRouter();
@@ -15,11 +16,14 @@ export default function Login() {
   useEffect(() => {
     if (session.status === 'authenticated') {
       router.push('/');
+      // router.push('/schoolselect');
     }
   }, [session]);
 
   async function onSubmit(event) {
     event.preventDefault();
+    //   call login function here
+
     console.log(uNameRef.current.value);
     console.log(passwordRef.current.value);
     const res = await signIn('credentials', {
@@ -28,7 +32,8 @@ export default function Login() {
       redirect: false,
     });
     console.log(res);
-    //   call login function here
+    if (res.error) setError(true);
+    else setError(false);
   }
 
   return (
@@ -66,6 +71,9 @@ export default function Login() {
             }}
           />
           <label htmlFor='showP'>Show Password</label>
+        </div>
+        <div className={styles.error}>
+          {error && <h5>Invalid Credentials</h5>}
         </div>
         <button className={styles.button83}>Login</button>
       </form>

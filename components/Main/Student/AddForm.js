@@ -4,6 +4,8 @@ import useHttp from '../../hooks/use-http';
 import { addStudent } from '../../lib/api';
 
 import styles from '../../../styles/Main/Student/AddForm.module.css';
+import { useSession } from 'next-auth/react';
+import LoadingSpinner from '../../UI/LoadingSpinner';
 
 export default function AddForm() {
   const fNameRef = useRef();
@@ -23,6 +25,7 @@ export default function AddForm() {
   const fileRef = useRef();
   const [photo, setPhoto] = useState(null);
   const [preview, setPreview] = useState(null);
+  const session = useSession();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,19 +33,23 @@ export default function AddForm() {
 
   function submitionHandler(event) {
     event.preventDefault();
-    console.log(photo);
     setIsLoading(true);
+    const date = dobRef.current.value;
+    let dob = date.slice(0, 10).split('-').reverse().join('-');
+    let addDate = new Date();
+    addDate = addDate.toJSON().slice(0, 10).split('-').reverse().join('-');
+
     const student = {
       firstName: fNameRef.current.value,
       lastName: lNameRef.current.value,
       fatherName: faNameRef.current.value,
       motherName: mNameRef.current.value,
-      dob: dobRef.current.value,
+      dob: dob,
       gender: genderRef.current.value,
       phone: phoneRef.current.value,
-      admissionDate: new Date(),
+      admissionDate: addDate,
       standard: classRef.current.value,
-      houseno: houseRef.current.value,
+      houseNo: houseRef.current.value,
       street: streetRef.current.value,
       city: cityRef.current.value,
       state: stateRef.current.value,
@@ -50,11 +57,9 @@ export default function AddForm() {
       email: emailRef.current.value,
     };
     console.log(student);
-    sendRequest(student);
+    sendRequest({ student, token: session.data.user.access_token });
     setIsLoading(false);
   }
-
-  console.log(photo);
 
   useEffect(() => {
     if (photo) {
@@ -66,9 +71,13 @@ export default function AddForm() {
     }
   }, [photo]);
 
-  if (status == 'pending') {
-    return <div>loading</div>;
-  }
+  // if (status == 'pending') {
+  //   return (
+  //     <div>
+  //       <LoadingSpinner />
+  //     </div>
+  //   );
+  // }
   return (
     <div>
       <form className={styles.form} onSubmit={submitionHandler}>
@@ -79,7 +88,6 @@ export default function AddForm() {
               type='file'
               id='photo'
               placeholder='Upload Photo'
-              required
               hidden
               ref={fileRef}
               onChange={(e) => {
@@ -243,7 +251,12 @@ export default function AddForm() {
 
           <div className={styles.submitdiv}>
             <button type='submit' className={styles.submitButton}>
-              {isLoading ? 'Loading' : 'Submit'}
+              {status === 'pending' && (
+                <div>
+                  <LoadingSpinner />
+                </div>
+              )}
+              {status === 'pending' ? '' : 'Submit'}
             </button>
           </div>
         </div>
