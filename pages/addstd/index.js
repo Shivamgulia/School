@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Layout2 from '../../components/Layout/Layout2/Layout2';
@@ -10,11 +9,9 @@ export default function AddStd() {
   const session = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (session.status === 'unauthenticated') {
-      router.push('/auth');
-    }
-  }, [session]);
+  if (session.status === 'unauthenticated') {
+    router.push('/auth');
+  }
 
   return (
     <Fragment>

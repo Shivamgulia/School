@@ -1880,6 +1880,11 @@
   "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.7.1.tgz"
   "version" "4.7.1"
 
+"react-interaction-hooks@^1.4.1":
+  "integrity" "sha512-4E2JnnTQ2Gq5hWovBqohFAuAVh5ncTfCfXce/TPe8e1Kay10vqGlLjZL9HVTZlgsb4G3x3JlZ6LBvAZpAg3qEw=="
+  "resolved" "https://registry.npmjs.org/react-interaction-hooks/-/react-interaction-hooks-1.4.1.tgz"
+  "version" "1.4.1"
+
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"

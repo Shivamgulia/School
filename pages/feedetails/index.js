@@ -20,11 +20,9 @@ export default function FeeDetails() {
   const session = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (session.status === 'unauthenticated') {
-      router.push('/auth');
-    }
-  }, [session, session.status, session.data]);
+  if (session.status === 'unauthenticated') {
+    router.push('/auth');
+  }
 
   //
 

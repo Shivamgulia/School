@@ -1,5 +1,4 @@
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 import Head from 'next/head';
 
 import { useSession } from 'next-auth/react';
@@ -14,11 +13,9 @@ export default function Home() {
 
   console.log(session);
 
-  useEffect(() => {
-    if (session.status === 'unauthenticated') {
-      router.push('/auth');
-    }
-  }, [session]);
+  if (session.status === 'unauthenticated') {
+    router.push('/auth');
+  }
 
   if (session.status === 'loading')
     return (

@@ -18,12 +18,13 @@ export async function GetStudentDetails(props) {
   return data;
 }
 
-export async function getSchoolStudent(props) {
-  let response = await fetch(`${url}/schoolstudents/1`, {
+export async function getSchoolList(props) {
+  console.log(props.email);
+  let response = await fetch(`${url}/api/v1/school/list/${props.email}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      // Authorization: 'Bearer ' + props.token,
+      Authorization: 'Bearer ' + props.token,
     },
   });
 

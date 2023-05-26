@@ -15,8 +15,8 @@ export default function Login() {
 
   useEffect(() => {
     if (session.status === 'authenticated') {
-      router.push('/');
-      // router.push('/schoolselect');
+      // router.push('/');
+      router.push('/schoolselect');
     }
   }, [session]);
 

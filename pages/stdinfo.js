@@ -16,11 +16,9 @@ export default function StdInfo() {
   const session = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (session.status === 'unauthenticated') {
-      router.push('/auth');
-    }
-  }, [session]);
+  if (session.status === 'unauthenticated') {
+    router.push('/auth');
+  }
 
   const {
     sendRequest,
