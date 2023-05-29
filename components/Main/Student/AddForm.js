@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import useHttp from '../../hooks/use-http';
 import { addStudent } from '../../lib/api';
-
+import SchoolContext from './../../../store/school-context';
 import styles from '../../../styles/Main/Student/AddForm.module.css';
 import { useSession } from 'next-auth/react';
 import LoadingSpinner from '../../UI/LoadingSpinner';
@@ -26,6 +26,7 @@ export default function AddForm() {
   const [photo, setPhoto] = useState(null);
   const [preview, setPreview] = useState(null);
   const session = useSession();
+  const schoolCtx = useContext(SchoolContext);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,6 +41,7 @@ export default function AddForm() {
     addDate = addDate.toJSON().slice(0, 10).split('-').reverse().join('-');
 
     const student = {
+      schoolId: schoolCtx.schoolid,
       firstName: fNameRef.current.value,
       lastName: lNameRef.current.value,
       fatherName: faNameRef.current.value,

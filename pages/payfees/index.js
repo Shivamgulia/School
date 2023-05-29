@@ -1,18 +1,17 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState, useContext } from 'react';
 import Head from 'next/head';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-
+import SchoolContext from '../../store/school-context';
 import useHttp from '../../components/hooks/use-http';
-
 import Layout2 from '../../components/Layout/Layout2/Layout2';
 import Pay from '../../components/Main/Fees/Pay';
 import DetailsForm from '../../components/Main/Student/DetailsForm';
-import { GetStudentDetails } from '../../components/lib/api';
+import { getStudentDetails } from '../../components/lib/api';
 
 export default function PayFees() {
   const [getDets, setGetDets] = useState(false);
-
+  const schoolCtx = useContext(SchoolContext);
   const session = useSession();
   const router = useRouter();
 
@@ -25,11 +24,17 @@ export default function PayFees() {
     data: StudentDetails,
     status,
     error,
-  } = useHttp(GetStudentDetails, false);
+  } = useHttp(getStudentDetails, false);
 
-  async function getStudentDetails(props) {
+  async function getStudentDetail(prop) {
+    console.log(prop);
     await setGetDets(false);
-    if (!(status === 'pending')) await sendRequest(props);
+    if (!(status === 'pending'))
+      await sendRequest({
+        schoolid: schoolCtx.schoolid,
+        studentid: prop,
+        token: session.data.user.access_token,
+      });
     await setGetDets(true);
   }
 
@@ -47,7 +52,7 @@ export default function PayFees() {
         <DetailsForm
           formFor='EnrolmentNumber'
           showDetails={(props) => {
-            getStudentDetails(props);
+            getStudentDetail(props);
           }}
         />
         {getDets && <Pay Student={StudentDetails} />}

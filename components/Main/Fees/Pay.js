@@ -1,6 +1,8 @@
-import { Fragment, use, useEffect, useState } from 'react';
+import { Fragment, use, useEffect, useState, useContext } from 'react';
 import styles from '../../../styles/Main/Fees/Pay.module.css';
+import { useSession } from 'next-auth/react';
 import useHttp from '../../hooks/use-http';
+import SchoolContext from '../../../store/school-context';
 import { getFeesDetails } from '../../lib/api';
 import DetailsForm from '../Student/DetailsForm';
 
@@ -9,6 +11,8 @@ import PayForm from './PayForm';
 export default function Pay(props) {
   const [showFee, setShowFee] = useState(false);
   const [year, setYear] = useState(null);
+  const schoolCtx = useContext(SchoolContext);
+  const session = useSession();
 
   const {
     sendRequest,
@@ -19,9 +23,10 @@ export default function Pay(props) {
 
   function getStudentDetails(prop) {
     sendRequest({
-      schoolId: 1,
+      schoolId: schoolCtx.schoolid,
       year: prop,
       studentId: props.Student.id.studentId,
+      token: session.data.user.access_token,
     });
     setYear(prop);
   }
@@ -39,7 +44,7 @@ export default function Pay(props) {
           <h3>Phone : {props.Student.phone}</h3>
         </div>
         <DetailsForm
-          formFor="Year"
+          formFor='Year'
           showDetails={(props) => {
             getStudentDetails(props);
           }}

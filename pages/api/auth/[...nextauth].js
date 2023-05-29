@@ -1,5 +1,4 @@
 import NextAuth from 'next-auth';
-
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const authOptions = {
@@ -36,6 +35,7 @@ const authOptions = {
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
       return { ...token, ...user };

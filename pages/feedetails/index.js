@@ -1,6 +1,7 @@
-import { Fragment, useEffect, useState, useRef } from 'react';
+import { Fragment, useEffect, useState, useRef, useContext } from 'react';
 import Head from 'next/head';
 import { useSession } from 'next-auth/react';
+import SchoolContext from '../../store/school-context';
 import { useRouter } from 'next/router';
 import Layout2 from '../../components/Layout/Layout2/Layout2';
 import FeeGraph from '../../components/Main/Fees/FeeGraph';
@@ -17,6 +18,7 @@ export default function FeeDetails() {
   const d = new Date();
 
   // to check if loged in
+  const schoolCtx = useContext(SchoolContext);
   const session = useSession();
   const router = useRouter();
 
@@ -25,6 +27,7 @@ export default function FeeDetails() {
   }
 
   //
+  console.log(schoolCtx.school);
 
   const [year, setYear] = useState(d.getFullYear());
   const [month, setMonth] = useState(d.getMonth());
@@ -40,10 +43,11 @@ export default function FeeDetails() {
       sendRequest({
         month: month,
         year: year,
+        schoolid: schoolCtx.schoolid,
         token: session.data.user.access_token,
       });
     console.log(graphData);
-  }, []);
+  }, [session.status]);
 
   return (
     <Fragment>
@@ -75,6 +79,7 @@ export default function FeeDetails() {
               sendRequest({
                 month: month,
                 year: year,
+                schoolid: schoolCtx.schoolid,
                 token: session.data.user.access_token,
               });
             }}

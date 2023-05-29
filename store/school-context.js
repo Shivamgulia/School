@@ -10,16 +10,15 @@ const SchoolContext = React.createContext({
 });
 
 const retrieveStoredSchool = () => {
-  'use client';
+  const [schoolid, setSchoolid] = useState();
+  const [name, setName] = useState();
+  const [school, setSchool] = useState();
 
-  let schoolid;
-  let name;
-  let school;
   useEffect(() => {
-    schoolid = localStorage.getItem('schoolid');
-    name = localStorage.getItem('Name');
-    school = localStorage.getItem('school');
-  });
+    setSchoolid(localStorage.getItem('schoolid'));
+    setName(localStorage.getItem('name'));
+    setSchool(localStorage.getItem('school'));
+  }, []);
 
   return {
     schoolid,
@@ -34,11 +33,17 @@ export const SchoolContextProvider = (props) => {
   let initialschoolid;
   if (schoolData) {
     initialschoolid = schoolData.schoolid;
+    console.log(schoolData.schoolid);
   }
 
   const [schoolid, setSchoolid] = useState(initialschoolid);
   const [name, setName] = useState(schoolData.name);
   const [school, setSchool] = useState(schoolData.school);
+  useEffect(() => {
+    setSchoolid(schoolData.schoolid);
+    setName(schoolData.name);
+    setSchool(schoolData.school);
+  });
 
   const schoolPresent = !!schoolid;
 
