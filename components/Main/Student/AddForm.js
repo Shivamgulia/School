@@ -41,7 +41,7 @@ export default function AddForm() {
     addDate = addDate.toJSON().slice(0, 10).split('-').reverse().join('-');
 
     const student = {
-      schoolId: schoolCtx.schoolid,
+      schoolid: Number(schoolCtx.schoolid),
       firstName: fNameRef.current.value,
       lastName: lNameRef.current.value,
       fatherName: faNameRef.current.value,
@@ -192,14 +192,30 @@ export default function AddForm() {
             />
           </div>
           <div className={styles.oneinputdiv}>
-            <input
+            <select
               type='number'
               id='class'
               placeholder='Class'
               required
               ref={classRef}
               className={styles.formInput}
-            />
+            >
+              <option value='Nursery'>Nursery</option>
+              <option value='LKG'>LKG</option>
+              <option value='UKG'>UKG</option>
+              <option value='I'>I</option>
+              <option value='II'>II</option>
+              <option value='III'>III</option>
+              <option value='IV'>IV</option>
+              <option value='V'>V</option>
+              <option value='VI'>VI</option>
+              <option value='VII'>VII</option>
+              <option value='VIII'>VIII</option>
+              <option value='IX'>IX</option>
+              <option value='X'>X</option>
+              <option value='XI'>XI</option>
+              <option value='XII'>XII</option>
+            </select>
           </div>
           <div className={styles.inputAddCont}>
             <h3>Address</h3>

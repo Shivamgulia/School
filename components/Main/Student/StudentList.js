@@ -30,22 +30,3 @@ export default function StudentList(props) {
     </div>
   );
 }
-
-// export default function StudentList() {
-//   return (
-//     <div>
-//       <table>
-//         <tbody>
-//           <tr>
-//             <th>Enrollment Number</th>
-//             <th>First Name</th>
-//             <th>Last Name</th>
-//             <th>Parents Name</th>
-//             <th>Mob Number</th>
-//             <th>Date of Birth</th>
-//           </tr>
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }

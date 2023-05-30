@@ -44,7 +44,7 @@ export async function addStudent(props) {
   const student = { ...props.student };
 
   let response = await fetch(
-    `${url}/api/v1/student/${props.student.schoolId}`,
+    `${url}/api/v1/student/${props.student.schoolid}`,
     {
       method: 'POST',
       headers: {
@@ -90,7 +90,7 @@ export async function submitFees(props) {
   // return true;
 
   let response = await fetch(
-    `${url}/fee/${props.fee.schoolId}/${props.fee.year}/${props.fee.studentId}`,
+    `${url}/api/v1/fee/${props.fee.schoolId}/${props.fee.year}/${props.fee.studentId}`,
     {
       method: 'POST',
       headers: {
