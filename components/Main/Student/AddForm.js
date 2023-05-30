@@ -7,7 +7,7 @@ import styles from '../../../styles/Main/Student/AddForm.module.css';
 import { useSession } from 'next-auth/react';
 import LoadingSpinner from '../../UI/LoadingSpinner';
 
-export default function AddForm() {
+export default function AddForm({ classes }) {
   const fNameRef = useRef();
   const lNameRef = useRef();
   const faNameRef = useRef();
@@ -198,10 +198,17 @@ export default function AddForm() {
               placeholder='Class'
               required
               ref={classRef}
+              style={{ width: '100px' }}
               className={styles.formInput}
             >
-              <option value='Nursery'>Nursery</option>
-              <option value='LKG'>LKG</option>
+              {classes.map((item) => {
+                return (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                );
+              })}
+              {/* <option value='LKG'>LKG</option>
               <option value='UKG'>UKG</option>
               <option value='I'>I</option>
               <option value='II'>II</option>
@@ -214,7 +221,7 @@ export default function AddForm() {
               <option value='IX'>IX</option>
               <option value='X'>X</option>
               <option value='XI'>XI</option>
-              <option value='XII'>XII</option>
+              <option value='XII'>XII</option> */}
             </select>
           </div>
           <div className={styles.inputAddCont}>
