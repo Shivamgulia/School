@@ -116,20 +116,26 @@ export default function ClassGraph(props) {
       data: data,
       options: {
         scales: {
-          xAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-                // display: true,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              barWidth: 0,
-              // display: false,
-            },
-          ],
+          // xAxes: [
+          //   {
+          //     ticks: {
+          //       beginAtZero: true,
+          //       // display: true,
+          //     },
+          //   },
+          // ],
+          // yAxes: [
+          //   {
+          //     barWidth: 0,
+          //     // display: false,
+          //   },
+          // ],
+          x: {
+            beginAtZero: true,
+          },
+          y: {
+            beginAtZero: true,
+          },
         },
       },
     });

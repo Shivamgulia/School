@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
-
+import { useContext } from 'react';
+import SchoolContext from '../store/school-context';
 import { useSession } from 'next-auth/react';
 import Layout2 from '../components/Layout/Layout2/Layout2';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
@@ -10,8 +11,10 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const session = useSession();
   const router = useRouter();
+  const schoolCtx = useContext(SchoolContext);
 
   console.log(session);
+  console.log(schoolCtx);
 
   if (session.status === 'unauthenticated') {
     router.push('/auth');

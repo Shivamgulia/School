@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 import useHttp from '../../hooks/use-http';
 import { addSchool } from '../../lib/api';
@@ -25,9 +26,16 @@ function AddSchool() {
   ]);
   const [reqClassList, setReqClassList] = useState([]);
   const session = useSession();
+  const router = useRouter();
 
   const { sendRequest, data, error, status } = useHttp(addSchool, false);
   console.log(session);
+
+  useEffect(() => {
+    if (session.status !== 'authenticated') {
+      router.replace('/');
+    }
+  });
 
   //submit function
   function submitionHandler(event) {
@@ -93,13 +101,13 @@ function AddSchool() {
             </div>
             <div className={styles.inputdiv}>
               <input
-                type='text'
+                type='number'
                 placeholder='Pincode'
                 className={styles.formInput}
                 required
               />
               <input
-                type='text'
+                type='number'
                 placeholder='Phone'
                 className={styles.formInput}
                 required

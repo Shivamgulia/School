@@ -29,7 +29,7 @@ const authOptions = {
           }
         );
         const data = await result.json();
-        console.log(data);
+
         if (result.ok) return data;
         throw Error('Invalid');
       },

@@ -14,17 +14,19 @@ export default function AddStd() {
   const router = useRouter();
   const schoolCtx = useContext(SchoolContext);
 
+  console.log(schoolCtx);
+
   const { sendRequest, data, status, error } = useHttp(getClassList, true);
 
   useEffect(() => {
-    if (session.status === 'authenticated') {
+    if (session.status === 'authenticated' && schoolCtx.schoolid) {
       sendRequest({
         schoolid: schoolCtx.schoolid,
         token: session.data.user.access_token,
       });
     }
     console.log(data);
-  }, []);
+  }, [session, schoolCtx.schoolid]);
 
   if (session.status === 'unauthenticated') {
     router.push('/auth');

@@ -10,19 +10,19 @@ const SchoolContext = React.createContext({
 });
 
 const retrieveStoredSchool = () => {
-  const [schoolid, setSchoolid] = useState();
-  const [name, setName] = useState();
+  // const [schoolid, setSchoolid] = useState();
+  // const [name, setName] = useState();
   const [school, setSchool] = useState();
 
   useEffect(() => {
-    setSchoolid(localStorage.getItem('schoolid'));
-    setName(localStorage.getItem('name'));
-    setSchool(localStorage.getItem('school'));
+    // setSchoolid(localStorage.getItem('schoolid'));
+    // setName(localStorage.getItem('name'));
+    setSchool(JSON.parse(localStorage.getItem('school')));
   }, []);
 
   return {
-    schoolid,
-    name,
+    // schoolid,
+    // name,
     school,
   };
 };
@@ -30,46 +30,57 @@ const retrieveStoredSchool = () => {
 export const SchoolContextProvider = (props) => {
   const schoolData = retrieveStoredSchool();
 
-  let initialschoolid;
+  let initialschool;
   if (schoolData) {
-    initialschoolid = schoolData.schoolid;
-    console.log(schoolData.schoolid);
+    initialschool = schoolData.school;
+    console.log(initialschool);
   }
 
-  const [schoolid, setSchoolid] = useState(initialschoolid);
-  const [name, setName] = useState(schoolData.name);
+  // const [schoolid, setSchoolid] = useState(initialschoolid);
+  // const [name, setName] = useState(schoolData.name);
   const [school, setSchool] = useState(schoolData.school);
   useEffect(() => {
-    setSchoolid(schoolData.schoolid);
-    setName(schoolData.name);
+    // setSchoolid(schoolData.schoolid);
+    // setName(schoolData.name);
     setSchool(schoolData.school);
-  });
+  }, [schoolData]);
 
-  const schoolPresent = !!schoolid;
+  console.log(school);
+  // console.log(schoolid);
+  // console.log(name);
 
-  const logoutHandler = useCallback(() => {
-    setSchoolid(null);
-    setName(null);
+  const schoolPresent = !!school;
+
+  const logoutHandler = () => {
+    // setSchoolid(null);
+    // setName(null);
     setSchool(null);
     if (localStorage) {
-      localStorage.removeItem('schoolid');
-      localStorage.removeItem('name');
+      // localStorage.removeItem('schoolid');
+      // localStorage.removeItem('name');
       localStorage.removeItem('school');
-    }
-  }, []);
-
-  const loginHandler = (school) => {
-    setSchoolid(school.id);
-    if (localStorage) {
-      localStorage.setItem('schoolid', school.id);
-      localStorage.setItem('name', school.name);
-      localStorage.setItem('school', JSON.stringify(school));
     }
   };
 
+  const loginHandler = (schoolprop) => {
+    // localStorage.setItem('schoolid', school.id);
+    // localStorage.setItem('name', school.name);
+    localStorage.setItem('school', JSON.stringify(schoolprop));
+    // setSchoolid(school.id);
+    // setName(school.name);
+    const temp = { ...schoolprop };
+    setSchool({ ...schoolprop });
+
+    // console.log(schoolid);
+    // console.log(name);
+    console.log(school);
+  };
+
+  console.log(school);
+
   const contextValue = {
-    schoolid: schoolid,
-    name: name,
+    schoolid: school ? school.id : null,
+    name: school ? school.name : null,
     school: school,
     schoolPresent: schoolPresent,
     login: loginHandler,
