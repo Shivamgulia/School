@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import SchoolContext from '../store/school-context';
 import { useSession } from 'next-auth/react';
 import Layout2 from '../components/Layout/Layout2/Layout2';
@@ -15,10 +15,11 @@ export default function Home() {
 
   console.log(session);
   console.log(schoolCtx);
-
-  if (session.status === 'unauthenticated') {
-    router.push('/auth');
-  }
+  useEffect(() => {
+    if (session.status === 'unauthenticated') {
+      router.push('/auth');
+    }
+  });
 
   if (session.status === 'loading')
     return (

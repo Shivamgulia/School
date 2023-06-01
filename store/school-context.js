@@ -33,7 +33,7 @@ export const SchoolContextProvider = (props) => {
   let initialschool;
   if (schoolData) {
     initialschool = schoolData.school;
-    console.log(initialschool);
+    // console.log(initialschool);
   }
 
   // const [schoolid, setSchoolid] = useState(initialschoolid);
@@ -43,9 +43,9 @@ export const SchoolContextProvider = (props) => {
     // setSchoolid(schoolData.schoolid);
     // setName(schoolData.name);
     setSchool(schoolData.school);
-  }, [schoolData]);
+  }, []);
 
-  console.log(school);
+  // console.log(school);
   // console.log(schoolid);
   // console.log(name);
 
@@ -69,8 +69,10 @@ export const SchoolContextProvider = (props) => {
     // setSchoolid(school.id);
     // setName(school.name);
     const temp = { ...schoolprop };
-    setSchool({ ...schoolprop });
-
+    if (temp !== null) {
+      setSchool({ ...temp });
+    }
+    console.log(temp, 'temp');
     // console.log(schoolid);
     // console.log(name);
     console.log(school);
@@ -79,9 +81,9 @@ export const SchoolContextProvider = (props) => {
   console.log(school);
 
   const contextValue = {
-    schoolid: school ? school.id : null,
-    name: school ? school.name : null,
-    school: school,
+    schoolid: school ? school.id : initialschool ? initialschool.id : null,
+    name: school ? school.name : initialschool ? initialschool.id : null,
+    school: school ? school : initialschool,
     schoolPresent: schoolPresent,
     login: loginHandler,
     logout: logoutHandler,
