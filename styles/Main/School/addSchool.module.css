@@ -1,0 +1,149 @@
+.formCont {
+  display: grid;
+}
+
+.form {
+  width: auto;
+  /* padding: 1rem 2rem; */
+  padding: 1rem;
+  margin-top: 3vh;
+  padding-top: 5vh;
+  /* background-color: #00d4ff; */
+  background-color: inherit;
+  border-radius: 2rem;
+  display: grid;
+
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+  text-align: center;
+  color: rgb(0, 3, 3);
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  /* flex-wrap: wrap; */
+}
+
+.formLabel {
+}
+
+@keyframes downloadArrow {
+  0% {
+    margin-top: -7px;
+    opacity: 1;
+  }
+
+  0.001% {
+    margin-top: -15px;
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    margin-top: 0;
+    opacity: 0.4;
+  }
+}
+
+.formInput {
+  /* max-width: 27vw; */
+  /* background-color: #5de2fc; */
+  background-color: inherit;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+}
+
+.inputCont {
+  width: 70vw;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.inputdiv {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.oneinputdiv {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  /* display: grid; */
+  /* grid-template-columns: 50% 50%; */
+}
+
+.formInput {
+  padding: 0.5vw;
+  text-align: center;
+}
+
+.inputCont {
+  display: grid;
+  justify-content: center;
+  /* grid-template-columns: repeat(auto-fit, minmax(170px, 17vw)); */
+  gap: 1rem;
+}
+
+.formInput::placeholder {
+  padding: 2vw;
+}
+
+.submitdiv {
+  display: grid;
+  /* justify-content: center; */
+}
+
+.submitButton {
+  color: black;
+
+  align-self: center;
+  /* border: 100px; */
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.submitButton:hover {
+  /* background-color: rgb(221, 252, 255); */
+
+  background-color: #b6f3ff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.classCont {
+  background-color: rgb(248, 214, 214);
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.checked {
+  background-color: rgb(161, 245, 161);
+}
+
+@media screen and (max-width: 700px) {
+  .inputdiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

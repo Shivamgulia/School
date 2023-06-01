@@ -153,3 +153,22 @@ export async function getClassList(props) {
   console.log('sent');
   return data;
 }
+
+export async function addSchool(props) {
+  let response = await fetch(`${url}/api/v1/school`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + props.token,
+      'Access-Control-Allow-Origin': 'http://localhost:3000/',
+    },
+    body: JSON.stringify(props.requestObject),
+  });
+
+  let data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not Add Student.');
+  }
+  console.log('sent');
+  return data;
+}
