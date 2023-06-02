@@ -32,8 +32,8 @@ function AddSchool() {
   console.log(session);
 
   useEffect(() => {
-    if (session.status !== 'authenticated') {
-      router.replace('/');
+    if (session.status === 'unauthenticated') {
+      router.replace('/auth');
     }
   });
 
@@ -136,13 +136,30 @@ function AddSchool() {
                       item.check ? styles.checked : ''
                     }`}
                   >
+                    <input
+                      type='checkbox'
+                      checked={item.check}
+                      onChange={() => {
+                        // const arr = [...classList];
+                        // arr[item.index].check = !arr[item.index].check;
+                        // setClassList(arr);
+                        console.log(item.check, item.class);
+                      }}
+                      className={styles.checkInput}
+                    />
                     <h3>{item.class}</h3>
                   </div>
                 );
               })}
             </div>
             {status === 'completed' && !error && (
-              <h1 style={{ textAlign: 'center' }}> School Added Succesfully</h1>
+              <div style={{ display: 'grid' }}>
+                <h3 style={{ textAlign: 'center' }}>
+                  {' '}
+                  School Added Succesfully.
+                </h3>
+                <h3 style={{ textAlign: 'center' }}>School ID :- {data.id}</h3>
+              </div>
             )}
             {error && (
               <h1 style={{ textAlign: 'center', color: 'red' }}>

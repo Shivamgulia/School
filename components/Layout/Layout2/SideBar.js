@@ -29,62 +29,20 @@ const sideLinks = [
   { head: 'Profile', innerLinks: [{ name: 'logout', to: '/auth' }] },
 ];
 
-// export default function SideBar() {
-//   return (
-//     <div className={styles.sideBar}>
-//       <div className={styles.sideBarContainer}>
-//         {sideLinks.map((item) => {
-//           return (
-//             <Fragment key={item.head}>
-//               <div className={styles.SideBarDashboard}>
-//                 <h4 className={styles.sideBarListTitle}>{item.head}</h4>
-//                 <ul className={styles.sideBarList}>
-//                   {item.innerLinks.map((lin) => {
-//                     return (
-//                       <Fragment key={lin.name}>
-//                         <Link href={lin.to} className={styles.link}>
-//                           <li
-//                             className={`${styles.sideBarListItem} ${styles.active}`}
-//                           >
-//                             {/* <Home className={styles.sideBarLogo} /> */}
-//                             {lin.name}
-//                           </li>
-//                         </Link>
-//                         {lin.deepLinks &&
-//                           lin.deepLinks.map((dlink) => {
-//                             return (
-//                               <div
-//                                 className={styles.deepLinks}
-//                                 key={dlink.name}
-//                               >
-//                                 <Link href={dlink.to} className={styles.link}>
-//                                   <li
-//                                     className={`${styles.sideBarListItem} ${styles.active}`}
-//                                   >
-//                                     {/* <Home className={styles.sideBarLogo} /> */}
-//                                     {dlink.name}
-//                                   </li>
-//                                 </Link>
-//                               </div>
-//                             );
-//                           })}
-//                       </Fragment>
-//                     );
-//                   })}
-//                 </ul>
-//               </div>
-//             </Fragment>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-
 export default function SideBar() {
   return (
     <div className={styles.sideBar}>
       <div className={styles.sideBarContainer}>
+        <div className={styles.SideBarDashboard}>
+          <h4 className={styles.sideBarListTitle}>Admin</h4>
+          <ul className={styles.sideBarList}>
+            <Link href='/addsch' className={styles.link}>
+              <li className={`${styles.sideBarListItem} ${styles.active}`}>
+                Add School
+              </li>
+            </Link>
+          </ul>
+        </div>
         <div className={styles.SideBarDashboard}>
           <h4 className={styles.sideBarListTitle}>Management</h4>
           <ul className={styles.sideBarList}>
