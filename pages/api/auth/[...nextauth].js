@@ -1,6 +1,9 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
+// const url = 'http://localhost:8080';
+const url = process.env.NEXT_PUBLIC_API_URL;
+
 const authOptions = {
   session: {
     strategy: 'jwt',
@@ -15,19 +18,16 @@ const authOptions = {
       async authorize(credentials, req) {
         const user = { id: '1', name: 'J Smith', email: 'jsmith@example.com' };
 
-        const result = await fetch(
-          'http://localhost:8080/api/v1/auth/authenticate',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email: credentials.email,
-              password: credentials.password,
-            }),
-          }
-        );
+        const result = await fetch(`${url}/api/v1/auth/authenticate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        });
         const data = await result.json();
 
         if (result.ok) return data;
