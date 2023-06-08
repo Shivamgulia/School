@@ -9,17 +9,20 @@ export default function FeeGraph(props) {
   useEffect(() => {
     var ctx = document.getElementById('myChart').getContext('2d');
     const data = {
-      labels: ['Submitted', 'Pending'],
+      labels: ['Fee'],
       datasets: [
         {
-          label: ['Students'],
-          data: [{ y: props.sub }, { y: props.pen }],
-          fill: false,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: ['rgb(255, 99, 132)', 'rgba(75, 192, 192)'],
+          label: 'Submitted',
+          data: [{ y: props.sub }],
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        },
+        {
+          label: 'Pending',
+          data: [{ y: props.pen }],
+          backgroundColor: 'rgba(192, 75, 75, 0.6)',
+          borderColor: 'rgba(192, 75, 75, 1)',
           borderWidth: 1,
         },
       ],

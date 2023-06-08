@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import styles from '../../../styles/Main/Fees/ClassGraph.module.css';
 
 export default function ClassGraph(props) {
-  const submittedList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  const pendingList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const submittedList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 8];
+  const pendingList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 17];
 
   //to put the data from api request into the array
   useEffect(() => {
@@ -18,123 +18,58 @@ export default function ClassGraph(props) {
 
   //to define the chart
   useEffect(() => {
-    var chartclass = document.getElementById('myChart1').getContext('2d');
-    const data = {
-      labels: [
-        'I',
-        'II',
-        'III',
-        'IV',
-        'V',
-        'VI',
-        'VII',
-        'VIII',
-        'IX',
-        'X',
-        'XI',
-        'XII',
-      ],
-      datasets: [
-        {
-          label: 'Submitted',
-          data: submittedList,
+    const classes = [
+      'Nursery',
+      'LKG',
+      'UKG',
+      'I',
+      'II',
+      'III',
+      'IV',
+      'V',
+      'VI',
+      'VII',
+      'VIII',
+      'IX',
+      'X',
+      'XI',
+      'XII',
+    ];
 
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-          ],
-          borderWidth: 1,
-          barWidth: 100,
-        },
-        {
-          label: 'Pending',
-          data: pendingList,
+    // Data for the x-axis (number of students)
 
-          backgroundColor: [
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: [
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-          ],
-          borderWidth: 1,
-          barWidth: 4,
-        },
-      ],
-    };
-    var myChart = new Chart(chartclass, {
+    // Generate the chart
+    const ctx = document.getElementById('myChart1').getContext('2d');
+    new Chart(ctx, {
       type: 'horizontalBar',
-      data: data,
+      data: {
+        labels: classes,
+        datasets: [
+          {
+            label: 'Submitted',
+            data: submittedList,
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+          },
+          {
+            label: 'Pending',
+            data: pendingList,
+            backgroundColor: 'rgba(192, 75, 75, 0.6)',
+            borderColor: 'rgba(192, 75, 75, 1)',
+            borderWidth: 1,
+          },
+        ],
+      },
       options: {
         scales: {
-          // xAxes: [
-          //   {
-          //     ticks: {
-          //       beginAtZero: true,
-          //       // display: true,
-          //     },
-          //   },
-          // ],
-          // yAxes: [
-          //   {
-          //     barWidth: 0,
-          //     // display: false,
-          //   },
-          // ],
           x: {
             beginAtZero: true,
           },
           y: {
-            beginAtZero: true,
+            grid: {
+              display: false,
+            },
           },
         },
       },

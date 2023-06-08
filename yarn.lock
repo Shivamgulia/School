@@ -1875,10 +1875,10 @@
     "prop-types" "^15.6.0"
     "warning" "^4.0.1"
 
-"react-icons@^4.7.1":
-  "integrity" "sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw=="
-  "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.7.1.tgz"
-  "version" "4.7.1"
+"react-icons@^4.9.0":
+  "integrity" "sha512-ijUnFr//ycebOqujtqtV9PFS7JjhWg0QU6ykURVHuL4cbofvRCf3f6GMn9+fBktEFQOIVZnuAYLZdiyadRQRFg=="
+  "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.9.0.tgz"
+  "version" "4.9.0"
 
 "react-interaction-hooks@^1.4.1":
   "integrity" "sha512-4E2JnnTQ2Gq5hWovBqohFAuAVh5ncTfCfXce/TPe8e1Kay10vqGlLjZL9HVTZlgsb4G3x3JlZ6LBvAZpAg3qEw=="

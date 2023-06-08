@@ -15,8 +15,14 @@ export default function Login() {
 
   useEffect(() => {
     if (session.status === 'authenticated') {
-      // router.push('/');
-      router.push('/schoolselect');
+      if (
+        session.data.user.roles[session.data.user.roles.length - 1]
+          .authority === 'ROLE_ADMIN'
+      ) {
+        router.push('/');
+      } else {
+        router.push('/schoolselect');
+      }
     }
   }, [session]);
 
