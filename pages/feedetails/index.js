@@ -5,6 +5,8 @@ import Layout2 from '../../components/Layout/Layout2/Layout2';
 import FeeGraph from '../../components/Main/Fees/FeeGraph';
 
 import ClassGraph from '../../components/Main/Fees/ClassGraph';
+import ClassChart from '../../components/Main/Fees/ClassChart';
+import FeeChart from '../../components/Main/Fees/FeeChart';
 
 export default function FeeDetails() {
   return (
@@ -20,8 +22,8 @@ export default function FeeDetails() {
             'margin-top': '30px',
           }}
         >
-          <FeeGraph />
-          <ClassGraph />
+          <FeeChart />
+          <ClassChart />
         </div>
       </Layout2>
     </Fragment>
