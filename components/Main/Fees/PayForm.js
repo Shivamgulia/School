@@ -1,4 +1,6 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState, useContext } from 'react';
+import { useSession } from 'next-auth/react';
+import SchoolContext from '../../../store/school-context';
 import styles from '../../../styles/Main/Fees/PayForm.module.css';
 import useHttp from '../../hooks/use-http';
 import { submitFees } from '../../lib/api';
@@ -22,6 +24,8 @@ export default function PayForm(props) {
   ]);
 
   const { sendRequest, error, status } = useHttp(submitFees, false);
+  const session = useSession();
+  const schoolCtx = useContext(SchoolContext);
 
   // fee submit funstion
 
@@ -49,7 +53,7 @@ export default function PayForm(props) {
     //
 
     const requestObj = {
-      schoolId: 1,
+      schoolId: schoolCtx.schoolid,
       studentId: props.Student.id.studentId,
       receiverId: 1,
       receiverName: 'adit',
@@ -65,7 +69,7 @@ export default function PayForm(props) {
     };
 
     // console.log(requestObj);
-    sendRequest(requestObj);
+    sendRequest({ fee: requestObj, token: session.data.user.access_token });
   }
 
   //

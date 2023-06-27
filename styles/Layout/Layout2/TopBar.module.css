@@ -33,8 +33,11 @@
 }
 
 .profileIcon {
-  /* height: 40px; */
-  /* width: 40px; */
+  height: 40px;
+  width: 40px;
+  border: 0;
+  background-color: inherit;
+  border-radius: 50%;
 }
 
 .topRight:hover {

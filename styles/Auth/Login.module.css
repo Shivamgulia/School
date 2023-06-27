@@ -75,6 +75,11 @@
   transition: all 1s;
 }
 
+.error {
+  color: red;
+  text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
   .loginForm {
     width: 60vw;

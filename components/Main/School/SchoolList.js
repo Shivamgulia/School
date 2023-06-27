@@ -1,93 +1,41 @@
+import React, { Fragment, useContext } from 'react';
 import SchoolItem from './SchoolItem';
+import SchoolContext from '../../../store/school-context';
+import { useRouter } from 'next/router';
 
-import styles from '../../../styles/Main/Student/StudentList.module.css';
+import styles from '../../../styles/Main/School/SchoolList.module.css';
 
-const list = [
-
-    {
-    enrolmentNumber: 101,
-    name: 'XYZ School',
-    city: 'xyz',
-    address: '45/2, xyz Road, city, district, UP, INDIA',
-    pinCode: '250501',
-    phoneNo: 'xxxxxxxxxx',
-    ownerName: 'some name',
-    },
-
-    {
-    enrolmentNumber: 101,
-    name: 'XYZ School',
-    city: 'xyz',
-    address: '45/2, xyz Road, city, district, UP, INDIA',
-    pinCode: '250501',
-    phoneNo: 'xxxxxxxxxx',
-    ownerName: 'some name',
-    },
-
-    {
-    enrolmentNumber: 101,
-    name: 'XYZ School',
-    city: 'xyz',
-    address: '45/2, xyz Road, city, district, UP, INDIA',
-    pinCode: '250501',
-    phoneNo: 'xxxxxxxxxx',
-    ownerName: 'some name',
-    },
-
-    {
-    enrolmentNumber: 101,
-    name: 'XYZ School',
-    city: 'xyz',
-    address: '45/2, xyz Road, city, district, UP, INDIA',
-    pinCode: '250501',
-    phoneNo: 'xxxxxxxxxx',
-    ownerName: 'some name',
-    },
-
-    {
-    enrolmentNumber: 101,
-    name: 'XYZ School',
-    city: 'xyz',
-    address: '45/2, xyz Road, city, district, UP, INDIA',
-    pinCode: '250501',
-    phoneNo: 'xxxxxxxxxx',
-    ownerName: 'some name',
-    },
-
-    {
-    enrolmentNumber: 101,
-    name: 'XYZ School',
-    city: 'xyz',
-    address: '45/2, xyz Road, city, district, UP, INDIA',
-    pinCode: '250501',
-    phoneNo: 'xxxxxxxxxx',
-    ownerName: 'some name',
-    }
-];
-
-export default function SchoolList() {
+function SchoolList(props) {
+  const router = useRouter();
+  const schoolCtx = useContext(SchoolContext);
+  console.log(props);
+  function selectSchool(prop) {
+    console.log(prop);
+    schoolCtx.login(prop);
+    router.push('/');
+  }
   return (
-    <div className={styles.centered}>
-      <h1>School List</h1>
-      <table className={styles.listTable}>
-        <tbody className={styles.tableBody}>
-          <tr>
-            <th>SR. No.</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Address</th>
-            <th>PinCode</th>
-            <th>Phone No.</th>
-            <th>Owner Name</th>
-          </tr>
-        </tbody>
-      </table>
-      {list.map((school) => {
-        return (
-            <SchoolItem key={school.enrolmentNumber} School={school} />
-        );
-      })}
+    <div className={styles.container}>
+      <div className={styles.total}>
+        <h3>Select School</h3>
+        <div className={styles.itemCont}>
+          {props.schools.map((school) => {
+            return (
+              <Fragment key={school.id}>
+                <div
+                  onClick={() => {
+                    selectSchool(school);
+                  }}
+                >
+                  <SchoolItem school={school} />
+                </div>
+              </Fragment>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
 
+export default SchoolList;

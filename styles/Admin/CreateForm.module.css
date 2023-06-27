@@ -1,0 +1,124 @@
+.model {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(69, 69, 69, 0.9);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.formCont {
+  display: grid;
+  background-color: white;
+  padding: 1vw 4vw 5vw 4vw;
+  border-radius: 5px;
+}
+
+.formHead {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  color: #645bff;
+}
+
+.form {
+  display: grid;
+  place-items: center;
+}
+
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+  max-width: 240px;
+}
+
+.coolinput .text {
+  font-size: 0.75rem;
+  color: #818cf8;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  /* background: #e8e8e8; */
+  background-color: white;
+  width: fit-content;
+}
+
+.coolinput input[type='text'].input {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #818cf8 solid;
+  border-radius: 5px;
+  /* background: #e8e8e8; */
+}
+
+.coolinput input[type='text'].input:focus {
+  outline: none;
+}
+
+.button {
+  margin-top: 10px;
+  --primary-color: #645bff;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+}
+
+.button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.button .arrow::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+}
+
+.button:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.button:hover .arrow:before {
+  right: 0;
+}

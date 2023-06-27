@@ -29,6 +29,13 @@
   /* margin-left: 1rem; */
   /* left: -10px; */
 }
+
+.sideBarList > button {
+  border: 0px;
+  background-color: inherit;
+  width: max-content;
+}
+
 .sideBarListItem:hover {
   cursor: pointer;
   color: rgb(33, 48, 38);
@@ -36,6 +43,42 @@
   background-color: rgb(133, 214, 130);
   /* position: fixed; */
 }
+
+.deepDiv {
+  position: absolute;
+  overflow: hidden;
+  left: 10vw;
+  margin-left: 5px;
+  width: 0;
+  margin-top: -50px;
+  /* width: 200px; */
+  /* box-shadow: 3px 0px 10px 1px #c4c7c5; */
+  z-index: -1;
+  background-color: inherit;
+  transition: all 0.1s;
+  background-color: rgb(229, 243, 229);
+  border-radius: 5px;
+  place-items: center;
+  padding: 0;
+  /* height: 95vh; */
+
+  /* overflow: visible; */
+}
+
+.deepDiv > ul > a {
+  padding-left: 0;
+  margin: 0;
+}
+
+.deepDiv > ul > a > li {
+  padding-left: 0;
+}
+
+.wrapper:hover .deepDiv {
+  width: 200px;
+  box-shadow: 3px 0px 10px 1px #c4c7c5;
+}
+
 .sideBarListTitle {
   font-size: 20px;
   color: rgb(2, 95, 36);
@@ -49,12 +92,15 @@
 
   text-align: left;
 }
+
 .link {
   text-decoration: none;
 }
+
 .active {
   color: green;
 }
+
 .sideBarLogo {
   margin-left: 15px;
 }
@@ -69,6 +115,9 @@
   .sideBar {
     width: 20vw;
   }
+  .deepDiv {
+    left: 16vw;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -77,6 +126,9 @@
     position: absolute;
     position: fixed;
     left: 0;
+  }
+  .deepDiv {
+    left: 24vw;
   }
 }
 
@@ -87,6 +139,9 @@
     position: fixed;
     left: 0;
   }
+  .deepDiv {
+    left: 24vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -96,6 +151,9 @@
     position: fixed;
     left: 0;
   }
+  .deepDiv {
+    left: 32vw;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -104,5 +162,8 @@
     position: absolute;
     position: fixed;
     left: 0;
+  }
+  .deepDiv {
+    left: 38vw;
   }
 }

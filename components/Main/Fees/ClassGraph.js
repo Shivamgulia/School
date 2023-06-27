@@ -1,123 +1,76 @@
-import { Chart, Utils } from 'chart.js';
+import { Chart } from 'chart.js';
 import { useEffect } from 'react';
 
-import styles from '../../../styles/Main/Fees/FeeGraph.module.css';
+import styles from '../../../styles/Main/Fees/ClassGraph.module.css';
 
-export default function ClassGraph() {
+export default function ClassGraph(props) {
+  const submittedList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 8];
+  const pendingList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 17];
+
+  //to put the data from api request into the array
   useEffect(() => {
-    var chartclass = document.getElementById('myChart1').getContext('2d');
-    const data = {
-      labels: [
-        'I',
-        'II',
-        'III',
-        'IV',
-        'V',
-        'VI',
-        'VII',
-        'VIII',
-        'IX',
-        'X',
-        'XI',
-        'XII',
-      ],
-      datasets: [
-        {
-          label: 'Submitted',
-          data: [65, 60, 5, 81, 56, 55, 40, 58, 25, 15, 74, 86],
+    props.data.map((item) => {
+      const st = item.standard;
+      submittedList[st - 1] = item.totalSubmitted;
+      pendingList[st - 1] = item.totalPending;
+    });
+  }, [props]);
 
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-            'rgb(255, 99, 132)',
-          ],
-          borderWidth: 1,
-          barWidth: 100,
-        },
-        {
-          label: 'Pending',
-          data: [12, 23, 12, 4, 2, 5, 2, 12, 25, 24, 22, 13],
+  //to define the chart
+  useEffect(() => {
+    const classes = [
+      'Nursery',
+      'LKG',
+      'UKG',
+      'I',
+      'II',
+      'III',
+      'IV',
+      'V',
+      'VI',
+      'VII',
+      'VIII',
+      'IX',
+      'X',
+      'XI',
+      'XII',
+    ];
 
-          backgroundColor: [
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: [
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-            'rgba(75, 192, 192)',
-          ],
-          borderWidth: 1,
-          barWidth: 4,
-        },
-      ],
-    };
-    var myChart = new Chart(chartclass, {
+    // Data for the x-axis (number of students)
+
+    // Generate the chart
+    const ctx = document.getElementById('myChart1').getContext('2d');
+    new Chart(ctx, {
       type: 'horizontalBar',
-      data: data,
+      data: {
+        labels: classes,
+        datasets: [
+          {
+            label: 'Submitted',
+            data: submittedList,
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+          },
+          {
+            label: 'Pending',
+            data: pendingList,
+            backgroundColor: 'rgba(192, 75, 75, 0.6)',
+            borderColor: 'rgba(192, 75, 75, 1)',
+            borderWidth: 1,
+          },
+        ],
+      },
       options: {
         scales: {
-          xAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-
-                // display: true,
-              },
-            },
-          ],
-          yAxes: [
-            {
-              barWidth: 0,
+          x: {
+            beginAtZero: true,
+          },
+          y: {
+            grid: {
               display: false,
             },
-          ],
+          },
         },
       },
     });
@@ -127,7 +80,7 @@ export default function ClassGraph() {
       <h1 className={styles.graphTitle}>Class Fee Statics</h1>
       <div>
         <div className={styles.graph}>
-          <canvas id='myChart1'></canvas>
+          <canvas id='myChart1' className={styles.chartCanvas}></canvas>
         </div>
       </div>
     </div>

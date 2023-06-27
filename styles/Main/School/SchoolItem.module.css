@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  padding: 10px;
+  background-color: rgb(229, 253, 229);
+  width: 20vw;
+  width: clamp(300px, 20vw, 500px);
+  border-radius: 5px;
+  text-align: center;
+  color: rgb(132, 110, 110);
+  transition: all 0.5s;
+}
+
+.id {
+  transition: all 0.5s;
+}
+
+.school {
+}
+
+.address {
+}
+
+.container:hover {
+  width: clamp(330px, 22vw, 550px);
+}
+
+.container:hover > .id {
+  font-size: larger;
+}
