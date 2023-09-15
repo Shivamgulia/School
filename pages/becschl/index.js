@@ -1,13 +1,12 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Layout2 from '../../components/Layout/Layout2/Layout2';
-import SchoolList from '../../components/Schools/SchoolList';
-import CreateForm from '../../components/Admin/CreateForm';
 import useHttp from '../../components/hooks/use-http';
 import { getAllSchool } from '../../components/lib/api';
+import SchoolList from '../../components/Schools/SchoolList';
 
-function CreateAdmin() {
+function BecomeSchool() {
   const [school, setSchool] = useState({});
   const [showForm, setShowForm] = useState(false);
   const { sendRequest, data, status, error } = useHttp(getAllSchool, true);
@@ -43,15 +42,18 @@ function CreateAdmin() {
   }
 
   console.log(data);
-
   return (
     <Fragment>
       <Layout2>
         {status === 'completed' && <SchoolList select={select} />}
-        {showForm && <CreateForm school={school} reset={reset} />}
+        {showForm && (
+          <div>
+            <h1>{school.id}</h1>
+          </div>
+        )}
       </Layout2>
     </Fragment>
   );
 }
 
-export default CreateAdmin;
+export default BecomeSchool;

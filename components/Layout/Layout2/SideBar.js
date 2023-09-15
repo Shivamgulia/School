@@ -51,6 +51,11 @@ export default function SideBar() {
                     Create Admin
                   </li>
                 </Link>
+                <Link href='/becschl' className={styles.link}>
+                  <li className={`${styles.sideBarListItem} ${styles.active}`}>
+                    Become School
+                  </li>
+                </Link>
               </ul>
             </div>
           )}
@@ -104,7 +109,7 @@ export default function SideBar() {
             <div className={styles.SideBarDashboard}>
               <h4 className={styles.sideBarListTitle}>Principle</h4>
               <ul className={styles.sideBarList}>
-                <div className={styles.wrapper}>
+                {/* <div className={styles.wrapper}>
                   <Link href='' className={styles.link}>
                     <li
                       className={`${styles.sideBarListItem} ${styles.active}`}
@@ -130,7 +135,12 @@ export default function SideBar() {
                       </Link>
                     </ul>
                   </div>
-                </div>
+                </div> */}
+                <Link href='/addstd' className={styles.link}>
+                  <li className={`${styles.sideBarListItem} ${styles.active}`}>
+                    Add Student
+                  </li>
+                </Link>
                 <Link href='/stdinfo' className={styles.link}>
                   <li className={`${styles.sideBarListItem} ${styles.active}`}>
                     Student Details

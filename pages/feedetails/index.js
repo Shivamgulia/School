@@ -39,15 +39,17 @@ export default function FeeDetails() {
   } = useHttp(graphList, false);
 
   useEffect(() => {
-    if (session.status === 'authenticated')
+    if (session.status === 'authenticated') {
       sendRequest({
         month: month,
         year: year,
         schoolid: schoolCtx.schoolid,
         token: session.data.user.access_token,
       });
-    console.log(graphData);
+      console.log(graphData);
+    }
   }, [session.status]);
+  console.log(graphData);
 
   return (
     <Fragment>

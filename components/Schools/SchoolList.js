@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import CreateForm from '../Admin/CreateForm';
+
+import styles from '../../styles/Schools/SchoolList.module.css';
 
 const list = [
   {
@@ -43,7 +44,7 @@ function SchoolList(props) {
     <Fragment>
       <h1>List</h1>
       <div>
-        <table>
+        <table className={`${styles.table}`}>
           <thead>
             <tr>
               <th>Select</th>
@@ -63,6 +64,7 @@ function SchoolList(props) {
                         onClick={() => {
                           props.select(item);
                         }}
+                        className={`${styles.selectButton}`}
                       >
                         Select
                       </button>

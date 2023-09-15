@@ -27,8 +27,8 @@ const TopBar = () => {
           <button
             className={styles.profileIcon}
             onClick={() => {
-              signOut();
               schoolCtx.logout();
+              signOut();
             }}
           >
             <CgLogOut size={30} />

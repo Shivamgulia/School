@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-// const url = 'http://localhost:8080';
 const url = process.env.NEXT_PUBLIC_API_URL;
 
 const authOptions = {
